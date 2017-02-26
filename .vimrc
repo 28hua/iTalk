@@ -62,7 +62,7 @@ set cindent
 if has('gui_running')
     "字体
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 13
-    set linespace=-2
+    set linespace=0
     "隐藏工具栏和菜单栏和滚动条
     set guioptions-=T
     set guioptions-=m
@@ -82,7 +82,7 @@ set expandtab
 "折叠
 "set foldcolumn=1
 set foldmethod=indent
-set foldlevel=99
+set foldlevel=0
 
 "始终显示状态条
 set laststatus=2
@@ -125,7 +125,7 @@ if has('gui_running')
     colorscheme molokai
 else
     set background=light
-    colorscheme molokai
+    colorscheme desert
 endif
 
 
@@ -160,10 +160,6 @@ vmap <Enter> <Plug>(EasyAlign)
 "Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-"ctags
-"http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks
-set tags=./tags;/
-
 "ultisnips
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-tab>"
@@ -183,6 +179,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 "nnoremap <leader>gt :YcmCompleter GoTo<CR>
 "nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
 "nnoremap <leader>gc :YcmCompleter GetDoc<CR>
+
+
+"ctags
+set tags=./.tags;,.tags
 
 
 "插入模式下bash风格移动
