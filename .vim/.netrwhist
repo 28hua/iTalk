@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/yangzai/github/28hua/hangshit'
+let g:netrw_dirhist_2='/home/yangzai/github/28hua/hangshit/env'
+let g:netrw_dirhist_3='/home/yangzai/github/28hua/hangshit/env/bin'
+let g:netrw_dirhist_4='/home/yangzai/github/28hua/hangshit/env'
+let g:netrw_dirhist_5='/home/yangzai/github/28hua/hangshit/env/include'
+let g:netrw_dirhist_6='/home/yangzai/github/28hua/hangshit/env'
+let g:netrw_dirhist_7='/home/yangzai/github/28hua/hangshit/env/lib'
+let g:netrw_dirhist_8='/home/yangzai/github/28hua/hangshit/env/lib/python2.7'
