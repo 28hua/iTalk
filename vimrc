@@ -39,7 +39,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'sirver/UltiSnips'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ds26gte/scmindent'
 Plugin 'luochen1990/rainbow'
@@ -52,8 +51,20 @@ Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
+"Plugin 'Valloric/YouCompleteMe'
+"" Track the engine.
+"Plugin 'SirVer/ultisnips'
+"" Snippets are separated from the engine. Add this if you want them:
+"Plugin 'honza/vim-snippets'
+"
+"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"
+"" If you want :UltiSnipsEdit to split your window.
+"let g:UltiSnipsEditSplit="vertical"
 
 set autoindent		" always set autoindenting on
 set smartindent
