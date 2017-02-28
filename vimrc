@@ -49,6 +49,7 @@ Plugin 'fcitx.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
+Plugin 'ervandew/supertab'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
@@ -251,3 +252,5 @@ nmap k gk
 
 "折行
 set wrap
+"搜索高亮
+set hlsearch
