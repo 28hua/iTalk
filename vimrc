@@ -172,10 +172,10 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 "ultisnips
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-p>"
-let g:UltiSnipsJumpBackwardTrigger="<c-n>"
+"let g:UltiSnipsExpandTrigger="<c-k>"
+"let g:UltiSnipsListSnippets="<c-tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-p>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 
 "jedi-vim
 
@@ -186,7 +186,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 "let g:ycm_autoclose_preview_window_after_insertion = 1
 "let g:ycm_key_invoke_completion = '<C-.>'
 "let g:ycm_python_binary_path = 'python'
-
+"
 "nnoremap <leader>gt :YcmCompleter GoTo<CR>
 "nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
 "nnoremap <leader>gc :YcmCompleter GetDoc<CR>
