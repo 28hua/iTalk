@@ -259,3 +259,5 @@ nmap k gk
 set wrap
 "搜索高亮
 set hlsearch
+"case insensitive
+set ignorecase
