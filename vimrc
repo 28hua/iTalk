@@ -53,6 +53,7 @@ Plugin 'ervandew/supertab'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
+Plugin 'iamcco/dict.vim'
 "Plugin 'Valloric/YouCompleteMe'
 "" Track the engine.
 "Plugin 'SirVer/ultisnips'
@@ -165,6 +166,10 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l 
+
+"dict.vim
+let g:api_key = "1932136763"
+let g:keyfrom = "aioiyuuko"
 
 "vim-easy-align
 "Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
