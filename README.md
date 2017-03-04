@@ -1,2 +1,9 @@
-# myvim
-vim装备，走到哪带到哪^_^
+# iTalk
+
+**No Fork! No Watch! No Star!**
+
+This repo is used mainly to backup my conf file.
+
+Besides, I'm trying using GitHub to replace weibo/weichat.
+
+Tks.
