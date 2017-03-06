@@ -53,7 +53,7 @@ Plugin 'ervandew/supertab'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
-Plugin 'iamcco/dict.vim'
+Plugin '28hua/dict.vim'
 "Plugin 'Valloric/YouCompleteMe'
 "" Track the engine.
 "Plugin 'SirVer/ultisnips'
