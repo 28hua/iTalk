@@ -16,6 +16,13 @@ set history=100		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+"搜索高亮
+set hlsearch
+"折行
+set wrap
+"case insensitive
+set ignorecase
+set updatetime=2000
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -254,10 +261,3 @@ set undodir=~/.vimtmp
 nmap j gj
 nmap k gk
 
-
-"折行
-set wrap
-"搜索高亮
-set hlsearch
-"case insensitive
-set ignorecase
