@@ -4,6 +4,6 @@
 
 This repo is used mainly to backup my conf file.
 
-Besides, I'm trying using GitHub to replace weibo/weichat.
+Besides, I'm trying using GitHub to replace Weibo/WeChat.
 
 Tks.

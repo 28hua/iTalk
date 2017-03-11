@@ -186,16 +186,16 @@ nmap ga <Plug>(EasyAlign)
 "jedi-vim
 
 "Youcompleteme
-"let g:ycm_global_ycm_extra_conf = '/home/yangzai/.config/ycm/.ycm_extra_conf.py'
-"let g:ycm_add_preview_to_completeopt = 1
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_autoclose_preview_window_after_insertion = 1
-"let g:ycm_key_invoke_completion = '<C-.>'
-"let g:ycm_python_binary_path = 'python'
-"
-"nnoremap <leader>gt :YcmCompleter GoTo<CR>
-"nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
-"nnoremap <leader>gc :YcmCompleter GetDoc<CR>
+"let g:ycm_global_ycm_extra_conf = '/home/xiexy/.config/ycm/.ycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_key_invoke_completion = '<C-.>'
+let g:ycm_python_binary_path = 'python'
+
+nnoremap <leader>gt :YcmCompleter GoTo<CR>
+nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>gc :YcmCompleter GetDoc<CR>
 
 
 "ctags
