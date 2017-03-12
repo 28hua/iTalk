@@ -233,6 +233,7 @@ imap <C-d>  <Delete>
 
 "ctrlp
 let g:ctrlp_cmd='CtrlP'
+let g:ctrlp_default_input = 1
 
 "scmindent
 if has("autocmd")
