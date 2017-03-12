@@ -200,9 +200,22 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_key_invoke_completion = '<C-.>'
 let g:ycm_python_binary_path = 'python'
 
-nnoremap <leader>gt :YcmCompleter GoTo<CR>
-nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
-nnoremap <leader>gc :YcmCompleter GetDoc<CR>
+nnoremap <leader>jt :YcmCompleter GoTo
+"nnoremap <leader>jt :YcmCompleter GoToInclude<CR>
+"nnoremap <leader>jt :YcmCompleter GoToDeclaration<CR>
+"nnoremap <leader>jt :YcmCompleter GoToDefinition<CR>
+"nnoremap <leader>jt :YcmCompleter GoTo<CR>
+"nnoremap <leader>jt :YcmCompleter GoToImprecise<CR>
+"nnoremap <leader>jt :YcmCompleter GoToReferences<CR>
+"nnoremap <leader>jt :YcmCompleter GoToImplementation<CR>
+"nnoremap <leader>jt :YcmCompleter GoToImplementationElseDeclaration<CR>
+
+nnoremap <leader>gt :YcmCompleter Get
+"nnoremap <leader>gt :YcmCompleter GetType<CR>
+"nnoremap <leader>gt :YcmCompleter GetTypeImprecise<CR>
+"nnoremap <leader>gt :YcmCompleter GetParent<CR>
+"nnoremap <leader>gt :YcmCompleter GetDoc<CR>
+"nnoremap <leader>gt :YcmCompleter GetDocImprecise<CR>
 
 
 "ctags
