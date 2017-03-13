@@ -47,6 +47,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'kien/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ds26gte/scmindent'
 Plugin 'luochen1990/rainbow'
 Plugin 'jiangmiao/auto-pairs'
@@ -56,12 +57,11 @@ Plugin 'fcitx.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin '28hua/dict.vim'
-"Plugin 'Valloric/YouCompleteMe'
 "" Track the engine.
 "Plugin 'SirVer/ultisnips'
 "" Snippets are separated from the engine. Add this if you want them:
@@ -234,6 +234,10 @@ imap <C-d>  <Delete>
 "ctrlp
 let g:ctrlp_cmd='CtrlP'
 let g:ctrlp_default_input = 1
+"ctrlp-funky
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 "scmindent
 if has("autocmd")
