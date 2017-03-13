@@ -47,7 +47,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'kien/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ds26gte/scmindent'
 Plugin 'luochen1990/rainbow'
 Plugin 'jiangmiao/auto-pairs'
@@ -234,10 +233,6 @@ imap <C-d>  <Delete>
 "ctrlp
 let g:ctrlp_cmd='CtrlP'
 let g:ctrlp_default_input = 1
-"ctrlp-funky
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-" narrow the list down with a word under cursor
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 "scmindent
 if has("autocmd")
