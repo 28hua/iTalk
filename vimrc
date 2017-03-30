@@ -61,6 +61,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin '28hua/dict.vim'
+Plugin 'rhysd/vim-clang-format'
 "" Track the engine.
 "Plugin 'SirVer/ultisnips'
 "" Snippets are separated from the engine. Add this if you want them:
@@ -189,7 +190,8 @@ nmap ga <Plug>(EasyAlign)
 "let g:UltiSnipsJumpForwardTrigger="<c-p>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 
-"jedi-vim
+"tagbar
+let g:tagbar_sort = 0
 
 "Youcompleteme
 "let g:ycm_global_ycm_extra_conf = '/home/xiexy/.config/ycm/.ycm_extra_conf.py'
