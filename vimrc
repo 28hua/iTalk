@@ -56,7 +56,7 @@ Plugin 'fcitx.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
@@ -191,7 +191,8 @@ nmap ga <Plug>(EasyAlign)
 "let g:UltiSnipsJumpForwardTrigger="<c-p>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 
-"jedi-vim
+"tagbar
+let g:tagbar_sort = 0
 
 "Youcompleteme
 "let g:ycm_global_ycm_extra_conf = '/home/xiexy/.config/ycm/.ycm_extra_conf.py'
