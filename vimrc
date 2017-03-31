@@ -61,6 +61,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin '28hua/dict.vim'
+Plugin 'rhysd/vim-clang-format'
 "Plugin 'Valloric/YouCompleteMe'
 "" Track the engine.
 "Plugin 'SirVer/ultisnips'
