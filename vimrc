@@ -226,7 +226,7 @@ set tags=./.tags;,.tags
 "插入模式下bash风格移动
 imap <C-f> <Right>
 imap <C-b> <Left>
-imap <C-a> <Home>
+imap <C-a> <Esc><S-i>
 imap <C-e> <End>
 "和删除
 imap <C-d>  <Delete>
