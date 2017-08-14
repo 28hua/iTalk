@@ -145,7 +145,7 @@ if has('gui_running')
     colorscheme molokai
 else
     set background=light
-    colorscheme desert
+    colorscheme molokai
 endif
 
 
@@ -217,6 +217,9 @@ nnoremap <leader>gt :YcmCompleter Get
 "nnoremap <leader>gt :YcmCompleter GetParent<CR>
 "nnoremap <leader>gt :YcmCompleter GetDoc<CR>
 "nnoremap <leader>gt :YcmCompleter GetDocImprecise<CR>
+
+"vim-clang-format
+let g:clang_format#style_options = { "ColumnLimit": 120 }
 
 
 "ctags
