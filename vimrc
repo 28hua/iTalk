@@ -62,6 +62,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin '28hua/dict.vim'
 Plugin 'rhysd/vim-clang-format'
+"Plugin 'Valloric/YouCompleteMe'
 "" Track the engine.
 "Plugin 'SirVer/ultisnips'
 "" Snippets are separated from the engine. Add this if you want them:
@@ -200,6 +201,9 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_key_invoke_completion = '<C-.>'
 let g:ycm_python_binary_path = 'python'
+
+"vim-jedi
+autocmd FileType python setlocal completeopt-=preview
 
 nnoremap <leader>jt :YcmCompleter GoTo
 "nnoremap <leader>jt :YcmCompleter GoToInclude<CR>
