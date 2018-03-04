@@ -51,7 +51,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages colorize sudo extract vim-interaction)
+plugins=(git colorize sudo extract vim-interaction)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,3 +87,8 @@ source $ZSH/oh-my-zsh.sh
 
 . ~/.oh-my-zsh/plugins/z/z.sh
 EDITOR=vim
+export QT_SELECT=4
+
+export RTE_SDK=/home/xiexy/github/dpdk
+export RTE_TARGET=x86_64-native-linuxapp-gcc
+export URLPREFIX='http://0.0.0.0:5000/s/'

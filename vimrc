@@ -20,6 +20,7 @@ set incsearch		" do incremental searching
 set hlsearch
 "折行
 set wrap
+set cursorline
 "case insensitive
 set ignorecase
 set updatetime=2000
@@ -56,12 +57,14 @@ Plugin 'fcitx.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
-"Plugin 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin '28hua/dict.vim'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'lua.vim'
+Plugin 'vim-misc'
 "Plugin 'Valloric/YouCompleteMe'
 "" Track the engine.
 "Plugin 'SirVer/ultisnips'
@@ -82,7 +85,7 @@ set cindent
 
 if has('gui_running')
     "字体
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 13
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 12
     set linespace=0
     "隐藏工具栏和菜单栏和滚动条
     set guioptions-=T
