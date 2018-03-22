@@ -65,6 +65,7 @@ Plugin '28hua/dict.vim'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'lua.vim'
 Plugin 'vim-misc'
+Plugin 'fatih/vim-go'
 "Plugin 'Valloric/YouCompleteMe'
 "" Track the engine.
 "Plugin 'SirVer/ultisnips'
@@ -224,6 +225,9 @@ nnoremap <leader>gt :YcmCompleter Get
 "nnoremap <leader>gt :YcmCompleter GetParent<CR>
 "nnoremap <leader>gt :YcmCompleter GetDoc<CR>
 "nnoremap <leader>gt :YcmCompleter GetDocImprecise<CR>
+
+"vim-clang-format
+let g:clang_format#style_options = { "ColumnLimit": 120 }
 
 
 "ctags
