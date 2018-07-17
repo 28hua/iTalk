@@ -91,4 +91,3 @@ export QT_SELECT=4
 
 export RTE_SDK=/home/xiexy/github/dpdk
 export RTE_TARGET=x86_64-native-linuxapp-gcc
-export URLPREFIX='http://0.0.0.0:5000/s/'

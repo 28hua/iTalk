@@ -38,47 +38,50 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'kien/ctrlp.vim'
-Plugin 'ds26gte/scmindent'
-Plugin 'luochen1990/rainbow'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'closetag.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'fcitx.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-airline/vim-airline'
-Plugin 'ervandew/supertab'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-surround'
-Plugin '28hua/dict.vim'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'lua.vim'
-Plugin 'vim-misc'
-Plugin 'fatih/vim-go'
-"Plugin 'Valloric/YouCompleteMe'
-"" Track the engine.
-"Plugin 'SirVer/ultisnips'
-"" Snippets are separated from the engine. Add this if you want them:
-"Plugin 'honza/vim-snippets'
-"
-"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"
-"" If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
+Plug 'junegunn/vim-easy-align'
+"Plun 'kien/ctrlp.vim'
+Plug 'ds26gte/scmindent'
+Plug 'luochen1990/rainbow'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-scripts/closetag.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'vim-scripts/fcitx.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'Yggdroot/LeaderF'
+Plug 'Shougo/echodoc.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'ervandew/supertab'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-surround'
+Plug '28hua/dict.vim'
+Plug 'rhysd/vim-clang-format'
+Plug 'vim-scripts/lua.vim'
+Plug 'vim-scripts/vim-misc'
+Plug 'fatih/vim-go'
+Plug 'mhinz/vim-signify'
+"Plug 'Valloric/YouCompleteMe'
+call plug#end()
+
+"LeaderF
+let g:Lf_ShortcutF = '<C-p>'
+let g:Lf_ShortcutB = '<M-n>'
+noremap <C-n> :LeaderfMru<cr>
+noremap <M-p> :LeaderfFunction!<cr>
+noremap <M-n> :LeaderfBuffer<cr>
+noremap <C-m> :LeaderfTag<cr>
+let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
+
+let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_WindowHeight = 0.30
+let g:Lf_CacheDirectory = expand('~/.vim/cache')
+let g:Lf_ShowRelativePath = 0
+let g:Lf_HideHelp = 1
+let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 set autoindent		" always set autoindenting on
 set smartindent
@@ -189,14 +192,6 @@ vmap <Enter> <Plug>(EasyAlign)
 "Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-"ultisnips
-"let g:UltiSnipsExpandTrigger="<c-k>"
-"let g:UltiSnipsListSnippets="<c-tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-p>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-n>"
-
-"tagbar
-let g:tagbar_sort = 0
 
 "Youcompleteme
 "let g:ycm_global_ycm_extra_conf = '/home/xiexy/.config/ycm/.ycm_extra_conf.py'
@@ -210,21 +205,7 @@ let g:ycm_python_binary_path = 'python'
 autocmd FileType python setlocal completeopt-=preview
 
 nnoremap <leader>jt :YcmCompleter GoTo
-"nnoremap <leader>jt :YcmCompleter GoToInclude<CR>
-"nnoremap <leader>jt :YcmCompleter GoToDeclaration<CR>
-"nnoremap <leader>jt :YcmCompleter GoToDefinition<CR>
-"nnoremap <leader>jt :YcmCompleter GoTo<CR>
-"nnoremap <leader>jt :YcmCompleter GoToImprecise<CR>
-"nnoremap <leader>jt :YcmCompleter GoToReferences<CR>
-"nnoremap <leader>jt :YcmCompleter GoToImplementation<CR>
-"nnoremap <leader>jt :YcmCompleter GoToImplementationElseDeclaration<CR>
-
 nnoremap <leader>gt :YcmCompleter Get
-"nnoremap <leader>gt :YcmCompleter GetType<CR>
-"nnoremap <leader>gt :YcmCompleter GetTypeImprecise<CR>
-"nnoremap <leader>gt :YcmCompleter GetParent<CR>
-"nnoremap <leader>gt :YcmCompleter GetDoc<CR>
-"nnoremap <leader>gt :YcmCompleter GetDocImprecise<CR>
 
 "vim-clang-format
 let g:clang_format#style_options = { "ColumnLimit": 120 }
@@ -244,8 +225,8 @@ imap <C-d>  <Delete>
 
 
 "ctrlp
-let g:ctrlp_cmd='CtrlP'
-let g:ctrlp_default_input = 1
+"let g:ctrlp_cmd='CtrlP'
+"let g:ctrlp_default_input = 1
 
 "scmindent
 if has("autocmd")
