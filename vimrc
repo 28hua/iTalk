@@ -40,7 +40,6 @@ filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/vim-easy-align'
 "Plun 'kien/ctrlp.vim'
 Plug 'ds26gte/scmindent'
 Plug 'luochen1990/rainbow'
@@ -185,13 +184,6 @@ nmap <C-l> <C-w>l
 "dict.vim
 let g:api_key = "1932136763"
 let g:keyfrom = "aioiyuuko"
-
-"vim-easy-align
-"Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-"Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 
 "Youcompleteme
 "let g:ycm_global_ycm_extra_conf = '/home/xiexy/.config/ycm/.ycm_extra_conf.py'
