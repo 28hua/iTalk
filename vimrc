@@ -25,6 +25,8 @@ set cursorline
 set ignorecase
 set updatetime=2000
 
+set cmdheight=2
+
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
@@ -59,9 +61,10 @@ Plug '28hua/dict.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'vim-scripts/lua.vim'
 Plug 'vim-scripts/vim-misc'
+Plug 'rdnetto/YCM-Generator'
 Plug 'fatih/vim-go'
 Plug 'mhinz/vim-signify'
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 "LeaderF
@@ -82,14 +85,16 @@ let g:Lf_HideHelp = 1
 let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
+let g:echodoc#enable_at_startup = 1
+
 set autoindent		" always set autoindenting on
 set smartindent
 set cindent
 
 if has('gui_running')
     "字体
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 12
-    set linespace=0
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
+    set linespace=-2
     "隐藏工具栏和菜单栏和滚动条
     set guioptions-=T
     set guioptions-=m
@@ -186,7 +191,7 @@ let g:api_key = "1932136763"
 let g:keyfrom = "aioiyuuko"
 
 "Youcompleteme
-"let g:ycm_global_ycm_extra_conf = '/home/xiexy/.config/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/home/xiexy/.config/ycm/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
