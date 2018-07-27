@@ -67,7 +67,7 @@ Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 "LeaderF
-let g:Lf_ShortcutF = '<Leader>t'
+let g:Lf_ShortcutF = '<C-P>'
 let g:Lf_ShortcutB = '<Leader>b'
 noremap <C-n> :LeaderfMru<cr>
 noremap <Leader>t :LeaderfFunction!<cr>
@@ -158,12 +158,6 @@ else
     set background=light
     colorscheme molokai
 endif
-
-"两文件切换
-nmap <Leader><Tab> <C-^>
-
-"tagbar快捷键
-nmap <Leader>t :TagbarToggle<CR>
 
 "NERDTree快捷键
 nmap <Leader>f :NERDTreeToggle<CR>
