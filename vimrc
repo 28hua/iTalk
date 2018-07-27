@@ -48,7 +48,6 @@ Plug 'vim-scripts/closetag.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/fcitx.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/LeaderF'
 Plug 'Shougo/echodoc.vim'
 Plug 'vim-airline/vim-airline'
@@ -65,11 +64,11 @@ Plug 'mhinz/vim-signify'
 call plug#end()
 
 "LeaderF
-let g:Lf_ShortcutF = '<C-p>'
-let g:Lf_ShortcutB = '<M-n>'
+let g:Lf_ShortcutF = '<Leader>t'
+let g:Lf_ShortcutB = '<Leader>b'
 noremap <C-n> :LeaderfMru<cr>
-noremap <M-p> :LeaderfFunction!<cr>
-noremap <M-n> :LeaderfBuffer<cr>
+noremap <Leader>t :LeaderfFunction!<cr>
+noremap <Leader>b :LeaderfBuffer<cr>
 noremap <C-m> :LeaderfTag<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
@@ -154,13 +153,6 @@ else
     set background=light
     colorscheme molokai
 endif
-
-
-"复制粘贴
-nmap <Leader>p "+p
-vmap <Leader>y "+y
-vmap <Leader>x "+x
-vmap <Leader>d "+d
 
 "两文件切换
 nmap <Leader><Tab> <C-^>
