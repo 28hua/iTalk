@@ -197,6 +197,11 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_key_invoke_completion = '<C-.>'
 let g:ycm_python_binary_path = 'python'
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_semantic_triggers =  {
+			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}'],
+			\ }
 
 "vim-jedi
 autocmd FileType python setlocal completeopt-=preview
