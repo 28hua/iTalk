@@ -53,6 +53,7 @@ Plug 'vim-scripts/closetag.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/fcitx.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/LeaderF'
 Plug 'Shougo/echodoc.vim'
 Plug 'vim-airline/vim-airline'
@@ -71,11 +72,11 @@ call plug#end()
 
 "LeaderF
 let g:Lf_ShortcutF = '<C-P>'
-let g:Lf_ShortcutB = '<Leader>b'
-noremap <C-n> :LeaderfMru<cr>
-noremap <Leader>t :LeaderfFunction!<cr>
-noremap <Leader>b :LeaderfBuffer<cr>
-noremap <C-m> :LeaderfTag<cr>
+let g:Lf_ShortcutB = '<A-B>'
+noremap <C-N> :LeaderfMru<cr>
+noremap <A-T> :LeaderfFunction!<cr>
+noremap <A-B> :LeaderfBuffer<cr>
+noremap <C-M> :LeaderfTag<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -166,6 +167,9 @@ endif
 
 "NERDTree快捷键
 nmap <Leader>f :NERDTreeToggle<CR>
+
+"tagbar
+nmap <Leader>T :Tarbar
 
 "刷新vimrc
 nmap <leader>e :e! ~/.vimrc<cr>
