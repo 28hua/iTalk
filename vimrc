@@ -128,23 +128,21 @@ let g:airline#extensions#tabline#enabled = 1
 
 
 "改leader键为"空格"
-let mapleader="\<Space>"
+let mapleader=","
 
 
 "tab1~10
-nmap <leader><tab>0 :tabn10<cr>
-nmap <leader><tab>1 :tabn1<cr>
-nmap <leader><tab>2 :tabn2<cr>
-nmap <leader><tab>3 :tabn3<cr>
-nmap <leader><tab>4 :tabn4<cr>
-nmap <leader><tab>5 :tabn5<cr>
-nmap <leader><tab>6 :tabn6<cr>
-nmap <leader><tab>7 :tabn7<cr>
-nmap <leader><tab>8 :tabn8<cr>
-nmap <leader><tab>9 :tabn9<cr>
-
-nmap <leader><tab>t :tabnew<cr>
-nmap <leader><tab>c :tabclose<cr>
+nmap <leader>0 :tabn10<cr>
+nmap <leader>1 :tabn1<cr>
+nmap <leader>2 :tabn2<cr>
+nmap <leader>3 :tabn3<cr>
+nmap <leader>4 :tabn4<cr>
+nmap <leader>5 :tabn5<cr>
+nmap <leader>6 :tabn6<cr>
+nmap <leader>7 :tabn7<cr>
+nmap <leader>8 :tabn8<cr>
+nmap <leader>9 :tabn9<cr>
+nmap <leader>c :tabclose<cr>
 
 
 "拿buffer当普通编辑器的tab使
@@ -169,7 +167,7 @@ endif
 nmap <Leader>f :NERDTreeToggle<CR>
 
 "tagbar
-nmap <Leader>T :Tarbar
+nmap <Leader>t :Tagbar<CR>
 
 "刷新vimrc
 nmap <leader>e :e! ~/.vimrc<cr>
@@ -226,6 +224,9 @@ imap <C-A> <Esc><S-i>
 imap <C-E> <End>
 "删除
 imap <C-D>  <Delete>
+
+imap <c-j> <c-g><c-j>
+imap <c-k> <c-g><c-k>
 
 "emacs-stype editing on the command-line
 " start of line
