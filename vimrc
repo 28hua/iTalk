@@ -27,6 +27,9 @@ set updatetime=2000
 
 set cmdheight=2
 
+set awa
+
+
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
@@ -115,6 +118,8 @@ set expandtab
 set foldmethod=indent
 set foldlevel=0
 
+set so=4
+
 "始终显示状态条
 set laststatus=2
 "vim-airline配置
@@ -166,6 +171,13 @@ nmap <Leader>f :NERDTreeToggle<CR>
 nmap <leader>e :e! ~/.vimrc<cr>
 autocmd! bufwritepost vimrc source ~/.vimrc
 
+"clear search hight light
+nmap <BS> :nohl<CR>
+
+"scrolling in insert mode
+imap <C-E> <C-X><C-E>
+imap <C-Y> <C-X><C->
+
 "快速移动到其他window
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
@@ -204,17 +216,32 @@ set tags=./.tags;,.tags
 
 
 "插入模式下bash风格移动
-imap <C-f> <Right>
-imap <C-b> <Left>
-imap <C-a> <Esc><S-i>
-imap <C-e> <End>
-"和删除
-imap <C-d>  <Delete>
+imap <C-F> <Right>
+imap <C-B> <Left>
+imap <C-A> <Esc><S-i>
+imap <C-E> <End>
+"删除
+imap <C-D>  <Delete>
 
-
-"ctrlp
-"let g:ctrlp_cmd='CtrlP'
-"let g:ctrlp_default_input = 1
+"emacs-stype editing on the command-line
+" start of line
+:cnoremap <C-A>		<Home>
+" back one character
+:cnoremap <C-B>		<Left>
+" delete character under cursor
+:cnoremap <C-D>		<Del>
+" end of line
+:cnoremap <C-E>		<End>
+" forward one character
+:cnoremap <C-F>		<Right>
+" recall newer command-line
+:cnoremap <C-N>		<Down>
+" recall previous (older) command-line
+:cnoremap <C-P>		<Up>
+" back one word
+:cnoremap <Esc><C-B>	<S-Left>
+" forward one word
+:cnoremap <Esc><C-F>	<S-Right>
 
 "scmindent
 if has("autocmd")
