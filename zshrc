@@ -87,9 +87,10 @@ source $ZSH/oh-my-zsh.sh
 
 . ~/.oh-my-zsh/plugins/z/z.sh
 EDITOR=vim
-export QT_SELECT=4
 
-export RTE_SDK=/home/xiexy/github/dpdk
-export RTE_TARGET=x86_64-native-linuxapp-gcc
+export GOPATH='/home/xiexy/gitlab/go'
+export PATH=$PATH:/home/xiexy/gitlab/go/bin
 export CHEATPATH=/home/xiexy/github/iTalk/awesome-cheatsheets/editors:/home/xiexy/github/iTalk/awesome-cheatsheets/tools:/home/xiexy/github/iTalk/awesome-cheatsheets/languages:$CHEATPATH
 export CHEAT_EDITOR=vim
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
