@@ -117,18 +117,19 @@ set expandtab
 "折叠
 "set foldcolumn=1
 set foldmethod=indent
-set foldlevel=0
+set foldlevel=99
 
-set so=4
+set so=8
 
 "始终显示状态条
 set laststatus=2
 "vim-airline配置
 let g:airline#extensions#tabline#enabled = 1
 
-
-"改leader键为"空格"
 let mapleader=","
+
+"不高亮匹配
+let loaded_matchparen = 1
 
 
 "tab1~10
@@ -171,7 +172,7 @@ nmap <Leader>t :Tagbar<CR>
 
 "刷新vimrc
 nmap <leader>e :e! ~/.vimrc<cr>
-autocmd! bufwritepost vimrc source ~/.vimrc
+"autocmd! bufwritepost vimrc source ~/.vimrc
 
 "clear search hight light
 nmap <BS> :nohl<CR>
@@ -192,10 +193,12 @@ let g:keyfrom = "aioiyuuko"
 
 "Youcompleteme
 let g:ycm_global_ycm_extra_conf = '/home/xiexy/.config/ycm/.ycm_extra_conf.py'
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_key_invoke_completion = '<C-.>'
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt = 0
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_key_invoke_completion = '<c-.>'
+let g:ycm_complete_in_strings=1
 let g:ycm_python_binary_path = 'python'
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_semantic_triggers =  {
@@ -203,14 +206,13 @@ let g:ycm_semantic_triggers =  {
 			\ 'cs,lua,javascript': ['re!\w{2}'],
 			\ }
 
-"vim-jedi
-autocmd FileType python setlocal completeopt-=preview
-
 nnoremap <leader>jt :YcmCompleter GoTo
 nnoremap <leader>gt :YcmCompleter Get
 
 "vim-clang-format
-let g:clang_format#style_options = { "ColumnLimit": 120 }
+let g:clang_format#style_options = {
+            \   "ColumnLimit": 80,
+            \   "AccessModifierOffset": -4}
 
 
 "ctags
