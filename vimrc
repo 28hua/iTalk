@@ -66,7 +66,9 @@ Plug 'vim-scripts/lua.vim'
 Plug 'vim-scripts/vim-misc'
 Plug 'rdnetto/YCM-Generator'
 Plug 'fatih/vim-go'
-Plug 'mhinz/vim-signify'
+Plug 'muziqiushan/vim-bufonly'
+Plug 'mhinz/vim-startify'
+Plug 'airblade/vim-gitgutter'
 Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
@@ -74,8 +76,8 @@ call plug#end()
 let g:Lf_ShortcutF = '<C-P>'
 let g:Lf_ShortcutB = '<A-B>'
 noremap <C-N> :LeaderfMru<cr>
-noremap <A-T> :LeaderfFunction!<cr>
-noremap <A-B> :LeaderfBuffer<cr>
+noremap <S-F> :LeaderfFunction!<cr>
+noremap <S-B> :LeaderfBuffer<cr>
 noremap <C-M> :LeaderfTag<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
