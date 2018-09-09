@@ -61,7 +61,7 @@ Plug 'Valloric/YouCompleteMe'
 let g:ycm_global_ycm_extra_conf = '/home/xiexy/.config/ycm/.ycm_extra_conf.py'
 set completeopt=menu,menuone
 let g:ycm_key_invoke_completion = '<C-.>'
-let g:ycm_show_diagnostics_ui = 0
+let g:ycm_show_diagnostics_ui = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -88,28 +88,28 @@ let g:clang_format#style_options = {
             \   "AccessModifierOffset": -4}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'w0rp/ale'
-let g:ale_linters_explicit = 1
-let g:ale_completion_delay = 500
-let g:ale_echo_delay = 20
-let g:ale_lint_delay = 500
-let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
-let g:airline#extensions#ale#enabled = 1
-
-let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
-let g:ale_c_cppcheck_options = ''
-let g:ale_cpp_cppcheck_options = ''
-
-let g:ale_sign_error = "\ue009\ue009"
-hi! clear SpellBad
-hi! clear SpellCap
-hi! clear SpellRare
-hi! SpellBad gui=undercurl guisp=red
-hi! SpellCap gui=undercurl guisp=blue
-hi! SpellRare gui=undercurl guisp=magenta
+"Plug 'w0rp/ale'
+"let g:ale_linters_explicit = 1
+"let g:ale_completion_delay = 500
+"let g:ale_echo_delay = 20
+"let g:ale_lint_delay = 500
+"let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+"let g:ale_lint_on_text_changed = 'normal'
+"let g:ale_lint_on_insert_leave = 1
+"let g:airline#extensions#ale#enabled = 1
+"
+"let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+"let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+"let g:ale_c_cppcheck_options = ''
+"let g:ale_cpp_cppcheck_options = ''
+"
+"let g:ale_sign_error = "\ue009\ue009"
+"hi! clear SpellBad
+"hi! clear SpellCap
+"hi! clear SpellRare
+"hi! SpellBad gui=undercurl guisp=red
+"hi! SpellCap gui=undercurl guisp=blue
+"hi! SpellRare gui=undercurl guisp=magenta
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'dyng/ctrlsf.vim'
