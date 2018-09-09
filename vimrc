@@ -255,9 +255,9 @@ set shiftwidth=4
 set expandtab
 
 "折叠
-"set foldcolumn=1
-set foldmethod=indent
+set foldmethod=syntax
 set foldlevel=99
+autocmd filetype python set foldmethod=indent
 
 set so=8
 
