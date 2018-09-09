@@ -45,38 +45,78 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+let mapleader=","
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
-
-"Plun 'kien/ctrlp.vim'
-Plug 'ds26gte/scmindent'
-Plug 'luochen1990/rainbow'
-Plug 'jiangmiao/auto-pairs'
-Plug 'vim-scripts/closetag.vim'
-Plug 'Raimondi/delimitMate'
-Plug 'vim-scripts/fcitx.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
-Plug 'Yggdroot/LeaderF'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Shougo/echodoc.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'ervandew/supertab'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'tpope/vim-surround'
-Plug '28hua/dict.vim'
-Plug 'rhysd/vim-clang-format'
-Plug 'vim-scripts/lua.vim'
-Plug 'vim-scripts/vim-misc'
-Plug 'rdnetto/YCM-Generator'
-Plug 'easymotion/vim-easymotion'
-Plug 'dyng/ctrlsf.vim'
-Plug 'fatih/vim-go'
-Plug 'muziqiushan/vim-bufonly'
-Plug 'mhinz/vim-startify'
-Plug 'airblade/vim-gitgutter'
-Plug 'Valloric/YouCompleteMe'
-call plug#end()
+let g:echodoc#enable_at_startup = 1
 
-"LeaderF
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'fatih/vim-go'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf = '/home/xiexy/.config/ycm/.ycm_extra_conf.py'
+set completeopt=menu,menuone
+let g:ycm_key_invoke_completion = '<C-.>'
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_complete_in_comments = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+let g:ycm_goto_buffer_command = 'split'
+let g:ycm_python_binary_path = 'python'
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_semantic_triggers = {
+			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}'],
+			\ }
+
+nnoremap <leader>jt :YcmCompleter GoTo
+nnoremap <leader>gt :YcmCompleter Get
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'rdnetto/YCM-Generator'
+"./config_gen
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'rhysd/vim-clang-format'
+let g:clang_format#style_options = {
+            \   "ColumnLimit": 80,
+            \   "AccessModifierOffset": -4}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'w0rp/ale'
+let g:ale_linters_explicit = 1
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_c_cppcheck_options = ''
+let g:ale_cpp_cppcheck_options = ''
+
+let g:ale_sign_error = "\ue009\ue009"
+hi! clear SpellBad
+hi! clear SpellCap
+hi! clear SpellRare
+hi! SpellBad gui=undercurl guisp=red
+hi! SpellCap gui=undercurl guisp=blue
+hi! SpellRare gui=undercurl guisp=magenta
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'dyng/ctrlsf.vim'
+let g:ctrlsf_ackprg = '/usr/bin/ag'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'Yggdroot/LeaderF'
 let g:Lf_ShortcutF = '<C-P>'
 let g:Lf_ShortcutB = '<A-B>'
 noremap <C-N> :LeaderfMru<cr>
@@ -94,7 +134,101 @@ let g:Lf_HideHelp = 1
 let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
-let g:echodoc#enable_at_startup = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'scrooloose/nerdtree'
+nmap <Leader>f :NERDTreeToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'majutsushi/tagbar'
+nmap <Leader>t :Tagbar<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'jiangmiao/auto-pairs'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'vim-scripts/closetag.vim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'Raimondi/delimitMate'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'ervandew/supertab'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'tpope/vim-surround'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'easymotion/vim-easymotion'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'muziqiushan/vim-bufonly'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'mhinz/vim-startify'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'mhinz/vim-signify'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug '28hua/dict.vim'
+let g:api_key = "1932136763"
+let g:keyfrom = "aioiyuuko"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'vim-scripts/fcitx.vim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Plug 'kien/ctrlp.vim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'vim-scripts/lua.vim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'vim-scripts/vim-misc'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'ds26gte/scmindent'
+if has("autocmd")
+  au BufReadPost *.rkt,*.rktl set filetype=scheme
+endif
+autocmd filetype lisp,scheme setlocal equalprg=scmindent.rkt
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+    \   'operators': '_,_',
+    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+    \   'separately': {
+    \       '*': {},
+    \       'tex': {
+    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+    \       },
+    \       'lisp': {
+    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+    \       },
+    \       'vim': {
+    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+    \       },
+    \       'html': {
+    \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+    \       },
+    \       'css': 0,
+    \   }
+    \}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#end()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set autoindent		" always set autoindenting on
 set smartindent
@@ -129,14 +263,10 @@ set so=8
 
 "始终显示状态条
 set laststatus=2
-"vim-airline配置
-let g:airline#extensions#tabline#enabled = 1
 
-let mapleader=","
 
 "不高亮匹配
 let loaded_matchparen = 1
-
 
 "tab1~10
 nmap <leader>0 :tabn10<cr>
@@ -150,7 +280,6 @@ nmap <leader>7 :tabn7<cr>
 nmap <leader>8 :tabn8<cr>
 nmap <leader>9 :tabn9<cr>
 nmap <leader>c :tabclose<cr>
-
 
 "拿buffer当普通编辑器的tab使
 nmap<S-h> :bp<CR>
@@ -170,11 +299,6 @@ else
     colorscheme molokai
 endif
 
-"NERDTree快捷键
-nmap <Leader>f :NERDTreeToggle<CR>
-
-"tagbar
-nmap <Leader>t :Tagbar<CR>
 
 "刷新vimrc
 nmap <leader>e :e! ~/.vimrc<cr>
@@ -192,34 +316,6 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l 
-
-"dict.vim
-let g:api_key = "1932136763"
-let g:keyfrom = "aioiyuuko"
-
-"Youcompleteme
-let g:ycm_global_ycm_extra_conf = '/home/xiexy/.config/ycm/.ycm_extra_conf.py'
-set completeopt=menu,menuone
-let g:ycm_add_preview_to_completeopt = 0
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_key_invoke_completion = '<c-.>'
-let g:ycm_complete_in_strings=1
-let g:ycm_python_binary_path = 'python'
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_semantic_triggers =  {
-			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-			\ 'cs,lua,javascript': ['re!\w{2}'],
-			\ }
-
-nnoremap <leader>jt :YcmCompleter GoTo
-nnoremap <leader>gt :YcmCompleter Get
-
-"vim-clang-format
-let g:clang_format#style_options = {
-            \   "ColumnLimit": 80,
-            \   "AccessModifierOffset": -4}
-
 
 "ctags
 set tags=./.tags;,.tags
@@ -256,36 +352,6 @@ imap <c-k> <c-g><c-k>
 " forward one word
 :cnoremap <Esc><C-F>	<S-Right>
 
-"scmindent
-if has("autocmd")
-  au BufReadPost *.rkt,*.rktl set filetype=scheme
-endif
-autocmd filetype lisp,scheme setlocal equalprg=scmindent.rkt
-
-"rainbow
-let g:rainbow_active = 1
-let g:rainbow_conf = {
-    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-    \   'operators': '_,_',
-    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-    \   'separately': {
-    \       '*': {},
-    \       'tex': {
-    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-    \       },
-    \       'lisp': {
-    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-    \       },
-    \       'vim': {
-    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-    \       },
-    \       'html': {
-    \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-    \       },
-    \       'css': 0,
-    \   }
-    \}
 
 
 "更改备份和交换文件的位置
