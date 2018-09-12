@@ -51,7 +51,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize sudo extract vim-interaction)
+plugins=(git colorize vim-interaction golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,9 +87,16 @@ source $ZSH/oh-my-zsh.sh
 
 . ~/.oh-my-zsh/plugins/z/z.sh
 EDITOR=vim
+HIST_IGNORE_ALL_DUPS="true"
+HIST_FIND_NO_DUPS="true"
+SAVEHIST=10000
 
-export GOPATH='/home/xiexy/gitlab/go'
-export PATH=$PATH:/home/xiexy/gitlab/go/bin
+
+export GOROOT=/usr/opt/go
+export DEFAULT_GOPATH=/home/xiexy/gitlab/gopath
+export GOPATH=$DEFAULT_GOPATH
+export PATH=$PATH:$GOROOT/bin:$DEFAULT_GOPATH/bin:/home/xiexy/gitlab/self/scripts
+
 export CHEATPATH=/home/xiexy/github/iTalk/awesome-cheatsheets/editors:/home/xiexy/github/iTalk/awesome-cheatsheets/tools:/home/xiexy/github/iTalk/awesome-cheatsheets/languages:$CHEATPATH
 export CHEAT_EDITOR=vim
 

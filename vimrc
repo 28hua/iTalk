@@ -15,7 +15,7 @@ endif
 set history=100		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+"set incsearch		" do incremental searching
 "搜索高亮
 set hlsearch
 "折行
@@ -117,12 +117,13 @@ let g:ctrlsf_ackprg = '/usr/bin/ag'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/LeaderF'
-let g:Lf_ShortcutF = '<C-P>'
-let g:Lf_ShortcutB = '<A-B>'
-noremap <C-N> :LeaderfMru<cr>
-noremap <S-F> :LeaderfFunction!<cr>
-noremap <S-B> :LeaderfBuffer<cr>
-noremap <C-M> :LeaderfTag<cr>
+let g:Lf_ShortcutF = '<c-p>'
+let g:Lf_ShortcutB = ';b'
+nmap <c-n> :LeaderfMru<cr>
+nmap ;f :LeaderfFunction<cr>
+nmap ;b :LeaderfBuffer<cr>
+nmap ;t :LeaderfTag<cr>
+nmap ;h :LeaderfHistoryCmd<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -255,9 +256,8 @@ set shiftwidth=4
 set expandtab
 
 "折叠
-set foldmethod=syntax
+set foldmethod=indent
 set foldlevel=99
-autocmd filetype python set foldmethod=indent
 
 set so=8
 
@@ -319,6 +319,19 @@ nmap <C-l> <C-w>l
 
 "ctags
 set tags=./.tags;,.tags
+
+"vim-go
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_arguments = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
 
 
 "插入模式下bash风格移动
