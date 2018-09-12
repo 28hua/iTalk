@@ -29,6 +29,9 @@ set cmdheight=2
 
 set awa
 
+set tm=100
+set ttm=0
+
 set grepprg=ag
 
 
