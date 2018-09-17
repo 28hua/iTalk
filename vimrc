@@ -15,11 +15,11 @@ endif
 set history=100		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-"set incsearch		" do incremental searching
+set incsearch		" do incremental searching
 "搜索高亮
 set hlsearch
 "折行
-set wrap
+set nowrapscan
 set cursorline
 "case insensitive
 set ignorecase
