@@ -58,6 +58,19 @@ let g:echodoc#enable_at_startup = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'fatih/vim-go'
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_arguments = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Valloric/YouCompleteMe'
@@ -117,6 +130,13 @@ let g:clang_format#style_options = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'dyng/ctrlsf.vim'
 let g:ctrlsf_ackprg = '/usr/bin/ag'
+let g:ctrlf_auto_focus = {"at": "start" }
+nmap     <Space>s <Plug>CtrlSFPrompt
+vmap     <Space>s <Plug>CtrlSFVwordPath
+vmap     <Space>S <Plug>CtrlSFVwordExec
+nmap     <Space>w <Plug>CtrlSFCwordPath
+nmap     <Space>W <Plug>CtrlSFCwordExec
+nnoremap <Space>o :CtrlSFToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/LeaderF'
@@ -189,9 +209,6 @@ let g:keyfrom = "aioiyuuko"
 Plug 'vim-scripts/fcitx.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plug 'kien/ctrlp.vim'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-scripts/lua.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -262,11 +279,10 @@ set expandtab
 set foldmethod=indent
 set foldlevel=99
 
-set so=8
+"set so=8
 
 "始终显示状态条
 set laststatus=2
-
 
 "不高亮匹配
 let loaded_matchparen = 1
@@ -323,20 +339,6 @@ nmap <C-l> <C-w>l
 "ctags
 set tags=./.tags;,.tags
 
-"vim-go
-let g:go_highlight_extra_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_arguments = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_variable_declarations = 1
-let g:go_highlight_variable_assignments = 1
-
-
 "插入模式下bash风格移动
 imap <C-F> <Right>
 imap <C-B> <Left>
@@ -367,8 +369,6 @@ imap <c-k> <c-g><c-k>
 :cnoremap <Esc><C-B>	<S-Left>
 " forward one word
 :cnoremap <Esc><C-F>	<S-Right>
-
-
 
 "更改备份和交换文件的位置
 set backupdir=~/.vimtmp
