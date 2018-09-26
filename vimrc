@@ -32,8 +32,6 @@ set awa
 set tm=500
 set ttm=0
 
-set grepprg=ag
-
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -130,13 +128,20 @@ let g:clang_format#style_options = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'dyng/ctrlsf.vim'
 let g:ctrlsf_ackprg = '/usr/bin/ag'
-let g:ctrlf_auto_focus = {"at": "start" }
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
+let g:ctrlsf_auto_close = {
+    \ "normal": 1,
+    \ "compact": 1
+    \ }
+let g:ctrlsf_default_view_mode = 'compact'
 nmap     <Space>s <Plug>CtrlSFPrompt
 vmap     <Space>s <Plug>CtrlSFVwordPath
 vmap     <Space>S <Plug>CtrlSFVwordExec
 nmap     <Space>w <Plug>CtrlSFCwordPath
 nmap     <Space>W <Plug>CtrlSFCwordExec
-nnoremap <Space>o :CtrlSFToggle<CR>
+nnoremap <Space>t :CtrlSFToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/LeaderF'
@@ -156,7 +161,7 @@ let g:Lf_CacheDirectory = expand('~/.vim/cache')
 let g:Lf_ShowRelativePath = 0
 let g:Lf_HideHelp = 1
 let g:Lf_StlColorscheme = 'powerline'
-let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
+let g:Lf_PreviewResult = {'Function':0, 'BufTag':1}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdtree'
@@ -342,7 +347,7 @@ set tags=./.tags;,.tags
 "插入模式下bash风格移动
 imap <C-F> <Right>
 imap <C-B> <Left>
-imap <C-A> <Esc><S-i>
+imap <C-A> <Home>
 imap <C-E> <End>
 "删除
 imap <C-D>  <Delete>
