@@ -56,6 +56,8 @@ let g:echodoc#enable_at_startup = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'fatih/vim-go'
+let g:go_fmt_autosave = 1
+let g:go_gocode_unimported_packages = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
@@ -68,7 +70,10 @@ let g:go_highlight_generate_tags = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
 
-
+au FileType go nmap ;t <Plug>(go-info)
+au FileType go nmap ;k <Plug>(go-doc-split)
+au FileType go nmap ;d <Plug>(go-def-split)
+au FileType go nmap ;r <Plug>(go-referrers)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Valloric/YouCompleteMe'
@@ -152,6 +157,7 @@ nmap ;f :LeaderfFunction<cr>
 nmap ;b :LeaderfBuffer<cr>
 nmap ;t :LeaderfTag<cr>
 nmap ;h :LeaderfHistoryCmd<cr>
+nmap ;l :LeaderfLine<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -188,6 +194,14 @@ let g:airline#extensions#tabline#enabled = 1
 Plug 'ervandew/supertab'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'junegunn/vim-easy-align'
+nmap <Leader>a <Plug>(EasyAlign)
+vmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>A <Plug>(EasyAlign)
+vmap <Leader>A <Plug>(EasyAlign)
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -207,8 +221,6 @@ Plug 'mhinz/vim-signify'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug '28hua/dict.vim'
-let g:api_key = "1932136763"
-let g:keyfrom = "aioiyuuko"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-scripts/fcitx.vim'
@@ -333,7 +345,7 @@ nmap <BS> :nohl<CR>
 
 "scrolling in insert mode
 imap <C-E> <C-X><C-E>
-imap <C-Y> <C-X><C->
+imap <C-Y> <C-X><C-Y>
 
 "快速移动到其他window
 nmap <C-h> <C-w>h
@@ -347,7 +359,7 @@ set tags=./.tags;,.tags
 "插入模式下bash风格移动
 imap <C-F> <Right>
 imap <C-B> <Left>
-imap <C-A> <Home>
+imap <C-A> <Esc>^i
 imap <C-E> <End>
 "删除
 imap <C-D>  <Delete>
