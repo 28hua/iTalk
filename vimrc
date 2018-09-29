@@ -15,11 +15,11 @@ endif
 set history=100		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-"set incsearch		" do incremental searching
+set incsearch		" do incremental searching
 "搜索高亮
 set hlsearch
 "折行
-set wrap
+set nowrapscan
 set cursorline
 "case insensitive
 set ignorecase
@@ -29,10 +29,8 @@ set cmdheight=2
 
 set awa
 
-set tm=100
+set tm=500
 set ttm=0
-
-set grepprg=ag
 
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
@@ -58,6 +56,24 @@ let g:echodoc#enable_at_startup = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'fatih/vim-go'
+let g:go_fmt_autosave = 1
+let g:go_gocode_unimported_packages = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_arguments = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+
+au FileType go nmap ;t <Plug>(go-info)
+au FileType go nmap ;k <Plug>(go-doc-split)
+au FileType go nmap ;d <Plug>(go-def-split)
+au FileType go nmap ;r <Plug>(go-referrers)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Valloric/YouCompleteMe'
@@ -117,6 +133,20 @@ let g:clang_format#style_options = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'dyng/ctrlsf.vim'
 let g:ctrlsf_ackprg = '/usr/bin/ag'
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
+let g:ctrlsf_auto_close = {
+    \ "normal": 1,
+    \ "compact": 1
+    \ }
+let g:ctrlsf_default_view_mode = 'compact'
+nmap     <Space>s <Plug>CtrlSFPrompt
+vmap     <Space>s <Plug>CtrlSFVwordPath
+vmap     <Space>S <Plug>CtrlSFVwordExec
+nmap     <Space>w <Plug>CtrlSFCwordPath
+nmap     <Space>W <Plug>CtrlSFCwordExec
+nnoremap <Space>t :CtrlSFToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/LeaderF'
@@ -127,6 +157,7 @@ nmap ;f :LeaderfFunction<cr>
 nmap ;b :LeaderfBuffer<cr>
 nmap ;t :LeaderfTag<cr>
 nmap ;h :LeaderfHistoryCmd<cr>
+nmap ;l :LeaderfLine<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -136,7 +167,7 @@ let g:Lf_CacheDirectory = expand('~/.vim/cache')
 let g:Lf_ShowRelativePath = 0
 let g:Lf_HideHelp = 1
 let g:Lf_StlColorscheme = 'powerline'
-let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
+let g:Lf_PreviewResult = {'Function':0, 'BufTag':1}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdtree'
@@ -163,6 +194,14 @@ let g:airline#extensions#tabline#enabled = 1
 Plug 'ervandew/supertab'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'junegunn/vim-easy-align'
+nmap <Leader>a <Plug>(EasyAlign)
+vmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>A <Plug>(EasyAlign)
+vmap <Leader>A <Plug>(EasyAlign)
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -182,14 +221,9 @@ Plug 'mhinz/vim-signify'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug '28hua/dict.vim'
-let g:api_key = "1932136763"
-let g:keyfrom = "aioiyuuko"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-scripts/fcitx.vim'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plug 'kien/ctrlp.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-scripts/lua.vim'
@@ -262,11 +296,10 @@ set expandtab
 set foldmethod=indent
 set foldlevel=99
 
-set so=8
+"set so=8
 
 "始终显示状态条
 set laststatus=2
-
 
 "不高亮匹配
 let loaded_matchparen = 1
@@ -312,7 +345,7 @@ nmap <BS> :nohl<CR>
 
 "scrolling in insert mode
 imap <C-E> <C-X><C-E>
-imap <C-Y> <C-X><C->
+imap <C-Y> <C-X><C-Y>
 
 "快速移动到其他window
 nmap <C-h> <C-w>h
@@ -323,24 +356,10 @@ nmap <C-l> <C-w>l
 "ctags
 set tags=./.tags;,.tags
 
-"vim-go
-let g:go_highlight_extra_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_arguments = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_variable_declarations = 1
-let g:go_highlight_variable_assignments = 1
-
-
 "插入模式下bash风格移动
 imap <C-F> <Right>
 imap <C-B> <Left>
-imap <C-A> <Esc><S-i>
+imap <C-A> <Esc>^i
 imap <C-E> <End>
 "删除
 imap <C-D>  <Delete>
@@ -367,8 +386,6 @@ imap <c-k> <c-g><c-k>
 :cnoremap <Esc><C-B>	<S-Left>
 " forward one word
 :cnoremap <Esc><C-F>	<S-Right>
-
-
 
 "更改备份和交换文件的位置
 set backupdir=~/.vimtmp
