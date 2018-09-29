@@ -92,11 +92,9 @@ HIST_FIND_NO_DUPS="true"
 SAVEHIST=10000
 
 
-export GOROOT=/usr/opt/go
-export DEFAULT_GOPATH=/home/xiexy/gitlab/gopath
-export GOPATH=$DEFAULT_GOPATH
-export PATH=$PATH:$GOROOT/bin:$DEFAULT_GOPATH/bin:/home/xiexy/gitlab/self/scripts
-
+export GOROOT=/usr/lib/go
+export GOPATH=/home/xiexy/gitlab/gopath
+export PATH=$PATH:/home/xiexy/gitlab/gopath/bin
 export CHEATPATH=/home/xiexy/github/iTalk/awesome-cheatsheets/editors:/home/xiexy/github/iTalk/awesome-cheatsheets/tools:/home/xiexy/github/iTalk/awesome-cheatsheets/languages:$CHEATPATH
 export CHEAT_EDITOR=vim
 
