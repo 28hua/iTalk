@@ -27,6 +27,10 @@ set updatetime=2000
 
 set cmdheight=2
 
+set scrolloff=1
+
+set wildmenu
+
 set awa
 
 set tm=500
@@ -87,6 +91,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 let g:ycm_goto_buffer_command = 'split'
 let g:ycm_python_binary_path = 'python'
+let g:ycm_max_num_candidates = 0
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_semantic_triggers = {
 			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
@@ -141,12 +146,12 @@ let g:ctrlsf_auto_close = {
     \ "compact": 1
     \ }
 let g:ctrlsf_default_view_mode = 'compact'
-nmap     <Space>s <Plug>CtrlSFPrompt
-vmap     <Space>s <Plug>CtrlSFVwordPath
-vmap     <Space>S <Plug>CtrlSFVwordExec
-nmap     <Space>w <Plug>CtrlSFCwordPath
-nmap     <Space>W <Plug>CtrlSFCwordExec
-nnoremap <Space>t :CtrlSFToggle<CR>
+nmap <Space>s <Plug>CtrlSFPrompt
+vmap <Space>s <Plug>CtrlSFVwordPath
+vmap <Space>S <Plug>CtrlSFVwordExec
+nmap <Space>w <Plug>CtrlSFCwordPath
+nmap <Space>W <Plug>CtrlSFCwordExec
+nmap <Space>t :CtrlSFToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/LeaderF'
@@ -179,6 +184,8 @@ nmap <Leader>t :Tagbar<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'jiangmiao/auto-pairs'
+let g:AutoPairsCenterLine = 0
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-scripts/closetag.vim'
@@ -200,6 +207,11 @@ vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>A <Plug>(EasyAlign)
 vmap <Leader>A <Plug>(EasyAlign)
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'sheerun/vim-polyglot'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'MattesGroeger/vim-bookmarks'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -218,6 +230,7 @@ Plug 'mhinz/vim-startify'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mhinz/vim-signify'
+let g:signify_update_on_bufenter = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug '28hua/dict.vim'
@@ -315,7 +328,8 @@ nmap <leader>6 :tabn6<cr>
 nmap <leader>7 :tabn7<cr>
 nmap <leader>8 :tabn8<cr>
 nmap <leader>9 :tabn9<cr>
-nmap <leader>c :tabclose<cr>
+
+nmap <leader>c :cclose<cr>
 
 "拿buffer当普通编辑器的tab使
 nmap<S-h> :bp<CR>
@@ -341,7 +355,7 @@ nmap <leader>e :e! ~/.vimrc<cr>
 "autocmd! bufwritepost vimrc source ~/.vimrc
 
 "clear search hight light
-nmap <BS> :nohl<CR>
+nmap <silent> <BS> :nohl<CR>
 
 "scrolling in insert mode
 imap <C-E> <C-X><C-E>
