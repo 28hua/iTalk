@@ -36,6 +36,11 @@ set awa
 set tm=500
 set ttm=0
 
+vnoremap < <gv
+vnoremap > >gv
+
+cmap w!! w !sudo tee >/dev/null %
+
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -163,6 +168,7 @@ nmap ;b :LeaderfBuffer<cr>
 nmap ;t :LeaderfTag<cr>
 nmap ;h :LeaderfHistoryCmd<cr>
 nmap ;l :LeaderfLine<cr>
+nmap ;c :LeaderfColorscheme<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -173,6 +179,11 @@ let g:Lf_ShowRelativePath = 0
 let g:Lf_HideHelp = 1
 let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':1}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'terryma/vim-expand-region'
+vmap v <Plug>(expand_region_expand)
+vmap V <Plug>(expand_region_shrink)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdtree'
