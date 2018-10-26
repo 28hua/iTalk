@@ -20,9 +20,10 @@ set incsearch		" do incremental searching
 set hlsearch
 "折行
 set nowrapscan
-set cursorline
+
 "case insensitive
 set ignorecase
+
 set updatetime=2000
 
 set cmdheight=2
@@ -55,6 +56,9 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+autocmd InsertEnter * set nocursorline
+autocmd BufEnter,InsertLeave *  set cursorline
+
 let mapleader=","
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -65,7 +69,7 @@ let g:echodoc#enable_at_startup = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'fatih/vim-go'
-let g:go_fmt_autosave = 1
+let g:go_fmt_autosave = 0
 let g:go_gocode_unimported_packages = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
@@ -343,8 +347,8 @@ nmap <leader>9 :tabn9<cr>
 nmap <leader>c :cclose<cr>
 
 "拿buffer当普通编辑器的tab使
-nmap<S-h> :bp<CR>
-nmap<S-l> :bn<CR>
+nmap <silent> <S-h> :bp<CR>
+nmap <silent> <S-l> :bn<CR>
 
 "行号和相对行号
 set relativenumber
