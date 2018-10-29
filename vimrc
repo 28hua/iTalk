@@ -169,7 +169,7 @@ let g:Lf_ShortcutB = ';b'
 nmap <c-n> :LeaderfMru<cr>
 nmap ;f :LeaderfFunction<cr>
 nmap ;b :LeaderfBuffer<cr>
-nmap ;t :LeaderfTag<cr>
+nmap ;t :LeaderfBufTag<cr>
 nmap ;h :LeaderfHistoryCmd<cr>
 nmap ;l :LeaderfLine<cr>
 nmap ;c :LeaderfColorscheme<cr>
@@ -254,6 +254,10 @@ Plug '28hua/dict.vim'
 Plug 'vim-scripts/fcitx.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'vim-scripts/rfc-syntax'
+autocmd! BufReadPost rfc\d\+\.txt setfiletype rfc
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-scripts/lua.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -303,7 +307,7 @@ set cindent
 if has('gui_running')
     "字体
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
-    set linespace=-2
+    set linespace=0
     "隐藏工具栏和菜单栏和滚动条
     set guioptions-=T
     set guioptions-=m
@@ -367,7 +371,7 @@ endif
 
 "刷新vimrc
 nmap <leader>e :e! ~/.vimrc<cr>
-"autocmd! bufwritepost vimrc source ~/.vimrc
+autocmd! bufwritepost .vimrc source ~/.vimrc
 
 "clear search hight light
 nmap <silent> <BS> :nohl<CR>
