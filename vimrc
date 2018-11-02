@@ -376,10 +376,6 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 "clear search hight light
 nmap <silent> <BS> :nohl<CR>
 
-"scrolling in insert mode
-imap <C-E> <C-X><C-E>
-imap <C-Y> <C-X><C-Y>
-
 "快速移动到其他window
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
