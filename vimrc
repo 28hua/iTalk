@@ -1,3 +1,4 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -21,8 +22,11 @@ set hlsearch
 "折行
 set nowrapscan
 
-"case insensitive
-set ignorecase
+set smartcase
+
+"行号和相对行号
+set relativenumber
+set number
 
 set updatetime=2000
 
@@ -32,34 +36,156 @@ set scrolloff=1
 
 set wildmenu
 
+"始终显示状态条
+set laststatus=2
+
 set awa
 
 set tm=500
 set ttm=0
 
-vnoremap < <gv
-vnoremap > >gv
+"tab设置为4个空格
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 
-cmap w!! w !sudo tee >/dev/null %
+set autoindent		" always set autoindenting on
+set smartindent
+set cindent
 
+"折叠
+set foldmethod=indent
+set foldlevel=99
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
+"主题配色
+syntax enable
+if has('gui_running')
+    set background=dark
+    colorscheme molokai
+else
+    set background=light
+    colorscheme molokai
+endif
+
+"更改备份和交换文件的位置
+set backupdir=~/.vimtmp
+set directory=~/.vimtmp
+set undodir=~/.vimtmp
+
+"ctags
+set tags=./.tags;,.tags
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
 endif
 
+if has('gui_running')
+    "字体
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
+    set linespace=0
+    "隐藏工具栏和菜单栏和滚动条
+    set guioptions-=T
+    set guioptions-=m
+    set guioptions-=l
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=R
+    set guioptions-=b
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader=","
+
+"不高亮匹配
+let loaded_matchparen = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"tab1~10
+nmap <leader>0 :tabn10<cr>
+nmap <leader>1 :tabn1<cr>
+nmap <leader>2 :tabn2<cr>
+nmap <leader>3 :tabn3<cr>
+nmap <leader>4 :tabn4<cr>
+nmap <leader>5 :tabn5<cr>
+nmap <leader>6 :tabn6<cr>
+nmap <leader>7 :tabn7<cr>
+nmap <leader>8 :tabn8<cr>
+nmap <leader>9 :tabn9<cr>
+
+nmap <leader>c :cclose<cr>
+
+"拿buffer当普通编辑器的tab使
+nmap <silent> <S-h> :bp<CR>
+nmap <silent> <S-l> :bn<CR>
+
+"快速移动到其他window
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+nmap j gj
+nmap k gk
+
+"刷新vimrc
+nmap <leader>e :e! ~/.vimrc<cr>
+
+"clear search hight light
+nmap <silent> <BS> :nohl<CR>
+
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
+
+"插入模式下bash风格移动
+imap <C-F> <Right>
+imap <C-B> <Left>
+imap <C-A> <Esc>^i
+imap <C-E> <End>
+"删除
+imap <C-D>  <Delete>
+
+imap <c-j> <c-g><c-j>
+imap <c-k> <c-g><c-k>
+
+vnoremap < <gv
+vnoremap > >gv
+
+"emacs-stype editing on the command-line
+" start of line
+:cnoremap <C-A>		<Home>
+" back one character
+:cnoremap <C-B>		<Left>
+" delete character under cursor
+:cnoremap <C-D>		<Del>
+" end of line
+:cnoremap <C-E>		<End>
+" forward one character
+:cnoremap <C-F>		<Right>
+" recall newer command-line
+:cnoremap <C-N>		<Down>
+" recall previous (older) command-line
+:cnoremap <C-P>		<Up>
+" back one word
+:cnoremap <Esc><C-B>	<S-Left>
+" forward one word
+:cnoremap <Esc><C-F>	<S-Right>
+
+cmap w!! w !sudo tee >/dev/null %
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd InsertEnter * set nocursorline
+autocmd BufEnter,InsertLeave *  set cursorline
+autocmd BufWritePre * %s/\s\+$//e
+autocmd BufReadPost * normal `"
+autocmd! BufWritePost .vimrc source ~/.vimrc
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
-
-autocmd InsertEnter * set nocursorline
-autocmd BufEnter,InsertLeave *  set cursorline
-
-let mapleader=","
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
@@ -234,6 +360,9 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'calebsmith/vim-lambdify'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'tpope/vim-surround'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -246,11 +375,11 @@ Plug 'easymotion/vim-easymotion'
 Plug 'muziqiushan/vim-bufonly'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'mhinz/vim-startify'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mhinz/vim-signify'
 let g:signify_update_on_bufenter = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'mhinz/vim-startify'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'kabbamine/zeavim.vim'
@@ -276,9 +405,7 @@ Plug 'vim-scripts/vim-misc'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'ds26gte/scmindent'
-if has("autocmd")
-  au BufReadPost *.rkt,*.rktl set filetype=scheme
-endif
+autocmd BufReadPost *.rkt,*.rktl set filetype=scheme
 autocmd filetype lisp,scheme setlocal equalprg=scmindent.rkt
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -310,128 +437,3 @@ let g:rainbow_conf = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set autoindent		" always set autoindenting on
-set smartindent
-set cindent
-
-if has('gui_running')
-    "字体
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
-    set linespace=0
-    "隐藏工具栏和菜单栏和滚动条
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions-=l
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=R
-    set guioptions-=b
-endif
-
-"tab设置为4个空格
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-
-"折叠
-set foldmethod=indent
-set foldlevel=99
-
-"set so=8
-
-"始终显示状态条
-set laststatus=2
-
-"不高亮匹配
-let loaded_matchparen = 1
-
-"tab1~10
-nmap <leader>0 :tabn10<cr>
-nmap <leader>1 :tabn1<cr>
-nmap <leader>2 :tabn2<cr>
-nmap <leader>3 :tabn3<cr>
-nmap <leader>4 :tabn4<cr>
-nmap <leader>5 :tabn5<cr>
-nmap <leader>6 :tabn6<cr>
-nmap <leader>7 :tabn7<cr>
-nmap <leader>8 :tabn8<cr>
-nmap <leader>9 :tabn9<cr>
-
-nmap <leader>c :cclose<cr>
-
-"拿buffer当普通编辑器的tab使
-nmap <silent> <S-h> :bp<CR>
-nmap <silent> <S-l> :bn<CR>
-
-"行号和相对行号
-set relativenumber
-set number
-
-"主题配色
-syntax enable
-if has('gui_running')
-    set background=dark
-    colorscheme molokai
-else
-    set background=light
-    colorscheme molokai
-endif
-
-
-"刷新vimrc
-nmap <leader>e :e! ~/.vimrc<cr>
-autocmd! bufwritepost .vimrc source ~/.vimrc
-
-"clear search hight light
-nmap <silent> <BS> :nohl<CR>
-
-"快速移动到其他window
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l 
-
-"ctags
-set tags=./.tags;,.tags
-
-"插入模式下bash风格移动
-imap <C-F> <Right>
-imap <C-B> <Left>
-imap <C-A> <Esc>^i
-imap <C-E> <End>
-"删除
-imap <C-D>  <Delete>
-
-imap <c-j> <c-g><c-j>
-imap <c-k> <c-g><c-k>
-
-"emacs-stype editing on the command-line
-" start of line
-:cnoremap <C-A>		<Home>
-" back one character
-:cnoremap <C-B>		<Left>
-" delete character under cursor
-:cnoremap <C-D>		<Del>
-" end of line
-:cnoremap <C-E>		<End>
-" forward one character
-:cnoremap <C-F>		<Right>
-" recall newer command-line
-:cnoremap <C-N>		<Down>
-" recall previous (older) command-line
-:cnoremap <C-P>		<Up>
-" back one word
-:cnoremap <Esc><C-B>	<S-Left>
-" forward one word
-:cnoremap <Esc><C-F>	<S-Right>
-
-"更改备份和交换文件的位置
-set backupdir=~/.vimtmp
-set directory=~/.vimtmp
-set undodir=~/.vimtmp
-
-nmap j gj
-nmap k gk
-
