@@ -121,8 +121,8 @@ nmap <C-l> <C-w>l
 
 nmap j gj
 nmap k gk
-nmap <C-j> <C-e>j
-nmap <C-k> <C-y>k
+nmap <C-e> <C-e>j
+nmap <C-y> <C-y>k
 
 "刷新vimrc
 nmap <leader>e :e! ~/.vimrc<cr>
