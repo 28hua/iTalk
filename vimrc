@@ -7,10 +7,10 @@ set nocompatible
 set backspace=indent,eol,start
 
 if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
+    set nobackup		" do not keep a backup file, use versions instead
 else
-  set backup		" keep a backup file (restore to previous version)
-  set undofile		" keep an undo file (undo changes after closing)
+    set backup		" keep a backup file (restore to previous version)
+    set undofile		" keep an undo file (undo changes after closing)
 endif
 
 set history=100		" keep 50 lines of command line history
@@ -78,7 +78,7 @@ set tags=./.tags;,.tags
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse=a
+    set mouse=a
 endif
 
 if has('gui_running')
@@ -102,17 +102,10 @@ let mapleader=","
 let loaded_matchparen = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"tab1~10
-nmap <leader>0 :tabn10<cr>
-nmap <leader>1 :tabn1<cr>
-nmap <leader>2 :tabn2<cr>
-nmap <leader>3 :tabn3<cr>
-nmap <leader>4 :tabn4<cr>
-nmap <leader>5 :tabn5<cr>
-nmap <leader>6 :tabn6<cr>
-nmap <leader>7 :tabn7<cr>
-nmap <leader>8 :tabn8<cr>
-nmap <leader>9 :tabn9<cr>
+nmap <tab> :tabn<cr>
+nmap <S-tab> :tabp<cr>
+nmap <Space><tab> :tabnew %<cr>
+nmap <Space><S-tab> :tabclose <cr>
 
 nmap <leader>c :cclose<cr>
 
@@ -128,6 +121,8 @@ nmap <C-l> <C-w>l
 
 nmap j gj
 nmap k gk
+nmap <C-j> jzz
+nmap <C-k> kzz
 
 "刷新vimrc
 nmap <leader>e :e! ~/.vimrc<cr>
@@ -229,9 +224,9 @@ let g:ycm_python_binary_path = 'python'
 let g:ycm_max_num_candidates = 0
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_semantic_triggers = {
-			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-			\ 'cs,lua,javascript': ['re!\w{2}'],
-			\ }
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+            \ 'cs,lua,javascript': ['re!\w{2}'],
+            \ }
 
 nnoremap <leader>jt :YcmCompleter GoTo
 nnoremap <leader>gt :YcmCompleter Get
@@ -274,12 +269,12 @@ let g:clang_format#style_options = {
 Plug 'dyng/ctrlsf.vim'
 let g:ctrlsf_ackprg = '/usr/bin/ag'
 let g:ctrlsf_auto_focus = {
-    \ "at": "start"
-    \ }
+            \ "at": "start"
+            \ }
 let g:ctrlsf_auto_close = {
-    \ "normal": 1,
-    \ "compact": 1
-    \ }
+            \ "normal": 1,
+            \ "compact": 1
+            \ }
 let g:ctrlsf_default_view_mode = 'compact'
 nmap <Space>s <Plug>CtrlSFPrompt
 vmap <Space>s <Plug>CtrlSFVwordPath
@@ -412,27 +407,27 @@ autocmd filetype lisp,scheme setlocal equalprg=scmindent.rkt
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-    \   'operators': '_,_',
-    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-    \   'separately': {
-    \       '*': {},
-    \       'tex': {
-    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-    \       },
-    \       'lisp': {
-    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-    \       },
-    \       'vim': {
-    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-    \       },
-    \       'html': {
-    \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-    \       },
-    \       'css': 0,
-    \   }
-    \}
+            \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+            \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+            \   'operators': '_,_',
+            \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+            \   'separately': {
+            \       '*': {},
+            \       'tex': {
+            \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+            \       },
+            \       'lisp': {
+            \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+            \       },
+            \       'vim': {
+            \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+            \       },
+            \       'html': {
+            \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+            \       },
+            \       'css': 0,
+            \   }
+            \}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
