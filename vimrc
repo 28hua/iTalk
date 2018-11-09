@@ -34,6 +34,8 @@ set cmdheight=2
 
 set scrolloff=1
 
+set nostartofline
+
 set wildmenu
 
 "始终显示状态条
@@ -84,7 +86,7 @@ endif
 if has('gui_running')
     "字体
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
-    set linespace=0
+    set linespace=-2
     "隐藏工具栏和菜单栏和滚动条
     set guioptions-=T
     set guioptions-=m
@@ -102,12 +104,18 @@ let mapleader=","
 let loaded_matchparen = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <tab> :tabn<cr>
-nmap <S-tab> :tabp<cr>
-nmap <Space><tab> :tabnew %<cr>
-nmap <Space><S-tab> :tabclose <cr>
-
-nmap <leader>c :cclose<cr>
+nnoremap th  :tabfirst<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+" Alternatively use
+nnoremap th :tabnext<CR>
+nnoremap tl :tabprev<CR>
+nnoremap tn :tabnew<CR>
 
 "拿buffer当普通编辑器的tab使
 nmap <silent> <S-h> :bp<CR>
@@ -174,7 +182,6 @@ cmap w!! w !sudo tee >/dev/null %
 autocmd InsertEnter * set nocursorline
 autocmd BufEnter,InsertLeave *  set cursorline
 autocmd BufWritePre * %s/\s\+$//e
-autocmd BufReadPost * normal `"
 autocmd! BufWritePost .vimrc source ~/.vimrc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
