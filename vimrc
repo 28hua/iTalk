@@ -22,7 +22,7 @@ set hlsearch
 "折行
 set nowrapscan
 
-set smartcase
+set ignorecase
 
 "行号和相对行号
 set relativenumber
@@ -64,7 +64,7 @@ set foldlevel=99
 syntax enable
 if has('gui_running')
     set background=dark
-    colorscheme molokai
+    colorscheme solarized
 else
     set background=light
     colorscheme molokai
@@ -133,7 +133,7 @@ nmap <C-e> <C-e>j
 nmap <C-y> <C-y>k
 
 "刷新vimrc
-nmap <leader>e :e! ~/.vimrc<cr>
+nmap <leader>e :e ~/.vimrc<cr>
 
 "clear search hight light
 nmap <silent> <BS> :nohl<CR>
@@ -411,6 +411,9 @@ autocmd BufReadPost *.rkt,*.rktl set filetype=scheme
 autocmd filetype lisp,scheme setlocal equalprg=scmindent.rkt
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'altercation/vim-colors-solarized'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
 let g:rainbow_conf = {
@@ -439,3 +442,26 @@ let g:rainbow_conf = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Highlight all instances of word under cursor, when idle.
+" Useful when studying strange source code.
+" Type z/ to toggle highlighting on/off.
+nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+function! AutoHighlightToggle()
+  let @/ = ''
+  if exists('#auto_highlight')
+    au! auto_highlight
+    augroup! auto_highlight
+    setl updatetime=4000
+    echo 'Highlight current word: off'
+    return 0
+  else
+    augroup auto_highlight
+      au!
+      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+    augroup end
+    setl updatetime=500
+    echo 'Highlight current word: ON'
+    return 1
+  endif
+endfunction
