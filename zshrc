@@ -75,7 +75,9 @@ antigen bundle willghatch/zsh-cdr
 # antigen bundle zsh-users/zaw
 
 # uncomment the line below to enable theme
-antigen theme fish-lite
+antigen theme ys
+
+antigen bundle unixorn/git-extra-commands
 
 
 # check login shell
@@ -175,10 +177,6 @@ setopt HIST_VERIFY # Don't execute immediately upon history expansion.
 # ignore complition
 zstyle ':completion:*:complete:-command-:*:*' ignored-patterns '*.pdf|*.exe|*.dll'
 zstyle ':completion:*:*sh:*:' tag-order files
-
-
-source $HOME/github/iTalk/zshrc
-
 
 #-------------------------------------------------------------------------------------------
 
