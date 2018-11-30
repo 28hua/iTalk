@@ -104,18 +104,13 @@ let mapleader=","
 let loaded_matchparen = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap th  :tabfirst<CR>
 nnoremap tk  :tabnext<CR>
 nnoremap tj  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap tt  :tabedit<Space>
-nnoremap tn  :tabnext<Space>
-nnoremap tm  :tabm<Space>
-nnoremap td  :tabclose<CR>
-" Alternatively use
 nnoremap th :tabnext<CR>
 nnoremap tl :tabprev<CR>
 nnoremap tn :tabnew<CR>
+nnoremap td  :tabclose<CR>
+nnoremap tt  :tabedit<Space>
 
 "拿buffer当普通编辑器的tab使
 nmap <silent> <S-h> :bp<CR>
@@ -153,8 +148,8 @@ imap <C-D>  <Delete>
 imap <c-j> <c-g><c-j>
 imap <c-k> <c-g><c-k>
 
-vnoremap < <gv
-vnoremap > >gv
+vmap < <gv
+vmap > >gv
 
 "emacs-stype editing on the command-line
 " start of line
@@ -197,7 +192,9 @@ let g:echodoc#enable_at_startup = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'fatih/vim-go'
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
+let g:go_auto_sameids = 1
+let g:go_autodetect_gopath = 1
 let g:go_gocode_unimported_packages = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
@@ -249,28 +246,50 @@ let g:clang_format#style_options = {
             \   "AccessModifierOffset": -4}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plug 'w0rp/ale'
-"let g:ale_linters_explicit = 1
-"let g:ale_completion_delay = 500
-"let g:ale_echo_delay = 20
-"let g:ale_lint_delay = 500
-"let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-"let g:ale_lint_on_text_changed = 'normal'
-"let g:ale_lint_on_insert_leave = 1
-"let g:airline#extensions#ale#enabled = 1
-"
-"let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-"let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
-"let g:ale_c_cppcheck_options = ''
-"let g:ale_cpp_cppcheck_options = ''
-"
-"let g:ale_sign_error = "\ue009\ue009"
-"hi! clear SpellBad
-"hi! clear SpellCap
-"hi! clear SpellRare
-"hi! SpellBad gui=undercurl guisp=red
-"hi! SpellCap gui=undercurl guisp=blue
-"hi! SpellRare gui=undercurl guisp=magenta
+Plug 'udovicchabant/vim-gutentags'
+" gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+
+" 所生成的数据文件的名称
+let g:gutentags_ctags_tagfile = '.tags'
+
+" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+
+" 配置 ctags 的参数
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+" 检测 ~/.cache/tags 不存在就新建
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'w0rp/ale'
+let g:ale_linters_explicit = 1
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_c_cppcheck_options = ''
+let g:ale_cpp_cppcheck_options = ''
+
+let g:ale_sign_error = "\ue009\ue009"
+hi! clear SpellBad
+hi! clear SpellCap
+hi! clear SpellRare
+hi! SpellBad gui=undercurl guisp=red
+hi! SpellCap gui=undercurl guisp=blue
+hi! SpellRare gui=undercurl guisp=magenta
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'dyng/ctrlsf.vim'
