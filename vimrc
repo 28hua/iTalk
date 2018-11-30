@@ -64,7 +64,7 @@ set foldlevel=99
 syntax enable
 if has('gui_running')
     set background=dark
-    colorscheme solarized
+    colorscheme molokai
 else
     set background=light
     colorscheme molokai
@@ -354,9 +354,6 @@ Plug 'markonm/traces.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'sheerun/vim-polyglot'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'MattesGroeger/vim-bookmarks'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'octol/vim-cpp-enhanced-highlight'
