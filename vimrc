@@ -215,7 +215,7 @@ au FileType go nmap ;r <Plug>(go-referrers)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf = '/home/xiexy/.config/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/home/xiexy/github/iTalk/ycm_extra_conf.py'
 set completeopt=menu,menuone
 let g:ycm_key_invoke_completion = '<C-.>'
 let g:ycm_show_diagnostics_ui = 1

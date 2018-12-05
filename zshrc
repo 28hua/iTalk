@@ -199,7 +199,7 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 
-export GOROOT=/usr/opt/go
+export GOROOT=/usr/lib/go
 export GOPATH=/home/xiexy/gitlab/gopath
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export CHEATPATH=/home/xiexy/github/iTalk/awesome-cheatsheets/editors:/home/xiexy/github/iTalk/awesome-cheatsheets/tools:/home/xiexy/github/iTalk/awesome-cheatsheets/languages:$CHEATPATH
