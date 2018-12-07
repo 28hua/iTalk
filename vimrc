@@ -326,7 +326,7 @@ nmap <Leader>t :Tagbar<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsCenterLine = 0
-autocmd filetype lisp,scheme,racket let b:AutoPairs = {"(": ")", "{": "}","\"": "\""}
+autocmd filetype lisp,scheme,racket let b:AutoPairs = {"(": ")", "[": "]", "{": "}","\"": "\""}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-scripts/closetag.vim'
