@@ -104,13 +104,13 @@ let mapleader=","
 let loaded_matchparen = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap tk  :tabnext<CR>
-nnoremap tj  :tabprev<CR>
-nnoremap th :tabnext<CR>
-nnoremap tl :tabprev<CR>
-nnoremap tn :tabnew<CR>
-nnoremap td  :tabclose<CR>
-nnoremap tt  :tabedit<Space>
+nmap <silent> tk :tabnext<CR>
+nmap <silent> tj :tabprev<CR>
+nmap <silent> th :tabnext<CR>
+nmap <silent> tl :tabprev<CR>
+nmap <silent> tn :tabnew<CR>
+nmap <silent> td :tabclose<CR>
+nmap <silent> tt :tabedit<Space>
 
 "拿buffer当普通编辑器的tab使
 nmap <silent> <S-h> :bp<CR>
@@ -129,6 +129,7 @@ nmap <C-y> <C-y>k
 
 "刷新vimrc
 nmap <leader>e :e ~/.vimrc<cr>
+nmap ;w :w<cr>
 
 "clear search hight light
 nmap <silent> <BS> :nohl<CR>
@@ -383,6 +384,16 @@ Plug 'kabbamine/zeavim.vim'
 Plug 'machakann/vim-highlightedyank'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 't9md/vim-quickhl'
+nmap vz <Plug>(quickhl-manual-this)
+vmap vz <Plug>(quickhl-manual-this)
+nmap z/ <Plug>(quickhl-cword-toggle)
+nmap z<BS> <Plug>(quickhl-manual-clear)
+vmap z<BS> <Plug>(quickhl-manual-clear)
+nmap Z<BS> <Plug>(quickhl-manual-reset)
+vmap Z<BS> <Plug>(quickhl-manual-reset)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug '28hua/dict.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -435,26 +446,3 @@ let g:rainbow_conf = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Highlight all instances of word under cursor, when idle.
-" Useful when studying strange source code.
-" Type z/ to toggle highlighting on/off.
-nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
-function! AutoHighlightToggle()
-  let @/ = ''
-  if exists('#auto_highlight')
-    au! auto_highlight
-    augroup! auto_highlight
-    setl updatetime=4000
-    echo 'Highlight current word: off'
-    return 0
-  else
-    augroup auto_highlight
-      au!
-      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-    augroup end
-    setl updatetime=500
-    echo 'Highlight current word: ON'
-    return 1
-  endif
-endfunction
