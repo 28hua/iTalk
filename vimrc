@@ -390,8 +390,8 @@ vmap vz <Plug>(quickhl-manual-this)
 nmap z/ <Plug>(quickhl-cword-toggle)
 nmap z<BS> <Plug>(quickhl-manual-clear)
 vmap z<BS> <Plug>(quickhl-manual-clear)
-nmap Z<BS> <Plug>(quickhl-manual-reset)
-vmap Z<BS> <Plug>(quickhl-manual-reset)
+nmap z\ <Plug>(quickhl-manual-reset)
+vmap z\ <Plug>(quickhl-manual-reset)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug '28hua/dict.vim'
