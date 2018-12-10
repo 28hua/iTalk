@@ -237,7 +237,7 @@ nnoremap <leader>jt :YcmCompleter GoTo
 nnoremap <leader>gt :YcmCompleter Get
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'rdnetto/YCM-Generator'
+Plug 'rdnetto/YCM-Generator', {'branch': 'stable'}
 "./config_gen
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
