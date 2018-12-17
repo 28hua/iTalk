@@ -41,7 +41,9 @@ set wildmenu
 "始终显示状态条
 set laststatus=2
 
+set aw
 set awa
+set spell
 
 set tm=500
 set ttm=0
@@ -129,7 +131,7 @@ nmap <C-y> <C-y>k
 
 "刷新vimrc
 nmap <leader>e :e ~/.vimrc<cr>
-nmap ;w :w<cr>
+nmap \w \w<cr>
 
 "clear search hight light
 nmap <silent> <BS> :nohl<CR>
@@ -209,10 +211,10 @@ let g:go_highlight_generate_tags = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
 
-au FileType go nmap ;t <Plug>(go-info)
-au FileType go nmap ;k <Plug>(go-doc-split)
-au FileType go nmap ;d <Plug>(go-def-split)
-au FileType go nmap ;r <Plug>(go-referrers)
+au FileType go nmap \t <Plug>(go-info)
+au FileType go nmap \k <Plug>(go-doc-split)
+au FileType go nmap \d <Plug>(go-def-split)
+au FileType go nmap \r <Plug>(go-referrers)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Valloric/YouCompleteMe'
@@ -245,7 +247,6 @@ Plug 'rhysd/vim-clang-format'
 let g:clang_format#style_options = {
             \   "ColumnLimit": 80,
             \   "AccessModifierOffset": -4}
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'w0rp/ale'
@@ -292,14 +293,14 @@ nmap <Space>t :CtrlSFToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/LeaderF'
 let g:Lf_ShortcutF = '<c-p>'
-let g:Lf_ShortcutB = ';b'
+let g:Lf_ShortcutB = '\b'
 nmap <c-n> :LeaderfMru<cr>
-nmap ;f :LeaderfFunction<cr>
-nmap ;b :LeaderfBuffer<cr>
-nmap ;t :LeaderfBufTag<cr>
-nmap ;h :LeaderfHistoryCmd<cr>
-nmap ;l :LeaderfLine<cr>
-nmap ;c :LeaderfColorscheme<cr>
+nmap \f :LeaderfFunction<cr>
+nmap \b :LeaderfBuffer<cr>
+nmap \t :LeaderfBufTag<cr>
+nmap \h :LeaderfHistoryCmd<cr>
+nmap \l :LeaderfLine<cr>
+nmap \c :LeaderfColorscheme<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
