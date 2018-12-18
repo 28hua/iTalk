@@ -132,7 +132,7 @@ nmap <leader>e :e ~/.vimrc<cr>
 nmap ;w :w<cr>
 
 "clear search hight light
-nmap <silent> <BS> :nohl<CR>
+nmap <silent> <BS> :nohl<cr>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
