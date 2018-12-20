@@ -43,7 +43,7 @@ set laststatus=2
 
 set aw
 set awa
-set spell
+"set spell
 
 set tm=500
 set ttm=0
@@ -131,7 +131,6 @@ nmap <C-y> <C-y>k
 
 "刷新vimrc
 nmap <leader>e :e ~/.vimrc<cr>
-nmap \w \w<cr>
 
 "clear search hight light
 nmap <silent> <BS> :nohl<CR>
@@ -153,6 +152,10 @@ imap <c-k> <c-g><c-k>
 
 vmap < <gv
 vmap > >gv
+
+" URL encode/decode selection
+vnoremap ;eu :!python3 -c 'import sys,urllib.parse;print(urllib.parse.quote(sys.stdin.read()), end="")'<cr>
+vnoremap ;du :!python3 -c 'import sys,urllib.parse;print(urllib.parse.unquote(sys.stdin.read()), end="")'<cr>
 
 "emacs-stype editing on the command-line
 " start of line
@@ -359,6 +362,13 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'calebsmith/vim-lambdify'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'machakann/vim-swap'
+omap i, <Plug>(swap-textobject-i)
+xmap i, <Plug>(swap-textobject-i)
+omap a, <Plug>(swap-textobject-a)
+xmap a, <Plug>(swap-textobject-a)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'tpope/vim-surround'
