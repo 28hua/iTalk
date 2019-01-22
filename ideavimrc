@@ -1,0 +1,17 @@
+set ignorecase
+
+nnoremap <S-l> :action NextTab <CR>
+nnoremap <S-h> :action PreviousTab<CR>
+
+nnoremap T :action ParameterInfo<CR>
+nnoremap K :action QuickJavaDoc<CR>
+nnoremap <C-w><C-]> :action QuickImplementations<CR>
+
+nnoremap \c :action QuickChangeScheme<CR>
+nnoremap <Space>w :SearchEverywhere<CR>
+
+nnoremap <F11> <C-S-F12>
+nnoremap td :action CloseEditor<CR>
+nnoremap tD :action CloseAllEditorsButActive<CR>
+nnoremap TD :action CloseAllEditors<CR>
+
