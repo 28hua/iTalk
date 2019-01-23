@@ -157,6 +157,8 @@ vmap > >gv
 vnoremap ,eu :!python3 -c 'import sys,urllib.parse;print(urllib.parse.quote(sys.stdin.read()), end="")'<cr>
 vnoremap ,du :!python3 -c 'import sys,urllib.parse;print(urllib.parse.unquote(sys.stdin.read()), end="")'<cr>
 
+vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
+
 "emacs-stype editing on the command-line
 " start of line
 :cnoremap <C-A>		<Home>
