@@ -3,15 +3,22 @@ set ignorecase
 nnoremap <S-l> :action NextTab <CR>
 nnoremap <S-h> :action PreviousTab<CR>
 
+nnoremap <C-o> :action Back <CR>
+nnoremap <C-i> :action Forward <CR>
+
 nnoremap T :action ParameterInfo<CR>
 nnoremap K :action QuickJavaDoc<CR>
 nnoremap <C-w><C-]> :action QuickImplementations<CR>
 
 nnoremap \c :action QuickChangeScheme<CR>
-nnoremap <Space>w :SearchEverywhere<CR>
+nnoremap \f :action FileStructurePopup<CR>
 
-nnoremap <F11> <C-S-F12>
+nnoremap <C-w>o :action unsplit <CR>
+nnoremap <C-w>O :action UnsplitAll <CR>
+nnoremap <C-w>c :action CloseEditor <CR>
+
+nnoremap ,f :action HideAllWindows <CR>
+
 nnoremap td :action CloseEditor<CR>
 nnoremap tD :action CloseAllEditorsButActive<CR>
 nnoremap TD :action CloseAllEditors<CR>
-
