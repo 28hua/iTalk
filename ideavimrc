@@ -30,11 +30,25 @@ nnoremap zo :action ExpandRegion <CR>
 nnoremap ,f :action HideAllWindows <CR>
 
 nnoremap ,w :action FindInPath <CR>
-nnoremap <Space>w :action SearchEverywhere <CR>
+nnoremap <C-p> :action SearchEverywhere <CR>
 
 nnoremap td :action CloseEditor<CR>
 nnoremap tD :action CloseAllEditorsButActive<CR>
 nnoremap TD :action CloseAllEditors<CR>
+
+"插入模式下bash风格移动
+imap <C-F> <Right>
+imap <C-B> <Left>
+imap <C-A> <Esc>^i
+imap <C-E> <End>
+"删除
+imap <C-D>  <Delete>
+
+imap <c-j> <c-g><c-j>
+imap <c-k> <c-g><c-k>
+
+vmap < <gv
+vmap > >gv
 
 "--- Actions ---
 "$Copy                                              <C-C> <C-Ins>
