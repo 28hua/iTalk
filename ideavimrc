@@ -20,10 +20,6 @@ nnoremap <C-w><C-]> :action QuickImplementations<CR>
 nnoremap \c :action QuickChangeScheme<CR>
 nnoremap \f :action FileStructurePopup<CR>
 
-nnoremap <C-w>o :action Unsplit <CR>
-nnoremap <C-w>O :action UnsplitAll <CR>
-nnoremap <C-w>c :action CloseEditor <CR>
-
 nnoremap zc :action CollapseBlock <CR>
 nnoremap zo :action ExpandRegion <CR>
 
