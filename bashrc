@@ -125,3 +125,5 @@ shopt -s histappend
 export GOROOT=$HOME/opt/go
 export GOPATH=$HOME/git/gopath
 export PATH=$PATH:/opt/cisco/anyconnect/bin:$HOME/opt/bin:$HOME/opt/go/bin
+
+export JAVA_HOME=/usr/lib/jvm/default-java

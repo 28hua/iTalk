@@ -106,13 +106,11 @@ let mapleader=","
 let loaded_matchparen = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <silent> tk :tabnext<CR>
-nmap <silent> tj :tabprev<CR>
+nmap <silent> tn :tabnext<CR>
+nmap <silent> tp :tabprev<CR>
 nmap <silent> th :tabnext<CR>
 nmap <silent> tl :tabprev<CR>
-nmap <silent> tn :tabnew<CR>
 nmap <silent> td :tabclose<CR>
-nmap <silent> tt :tabedit<Space>
 
 "拿buffer当普通编辑器的tab使
 nmap <silent> <S-h> :bp<CR>
@@ -225,7 +223,7 @@ Plug 'Valloric/YouCompleteMe'
 let g:ycm_global_ycm_extra_conf = '/home/xiexy/github/iTalk/ycm_extra_conf.py'
 set completeopt=menu,menuone
 let g:ycm_key_invoke_completion = '<C-.>'
-let g:ycm_show_diagnostics_ui = 1
+let g:ycm_show_diagnostics_ui = 0
 let g:ycm_complete_in_comments = 1
 let g:ycm_max_diagnostics_to_display = 0
 let g:ycm_seed_identifiers_with_syntax = 1
@@ -252,30 +250,6 @@ Plug 'rhysd/vim-clang-format'
 let g:clang_format#style_options = {
             \   "ColumnLimit": 80,
             \   "AccessModifierOffset": -4}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'w0rp/ale'
-let g:ale_linters_explicit = 1
-let g:ale_completion_delay = 500
-let g:ale_echo_delay = 20
-let g:ale_lint_delay = 500
-let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
-let g:airline#extensions#ale#enabled = 1
-
-let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
-let g:ale_c_cppcheck_options = ''
-let g:ale_cpp_cppcheck_options = ''
-
-let g:ale_sign_error = "\ue009\ue009"
-hi! clear SpellBad
-hi! clear SpellCap
-hi! clear SpellRare
-hi! SpellBad gui=undercurl guisp=red
-hi! SpellCap gui=undercurl guisp=blue
-hi! SpellRare gui=undercurl guisp=magenta
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'dyng/ctrlsf.vim'
