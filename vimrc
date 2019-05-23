@@ -6,12 +6,8 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-    set nobackup		" do not keep a backup file, use versions instead
-else
-    set backup		" keep a backup file (restore to previous version)
-    set undofile		" keep an undo file (undo changes after closing)
-endif
+set backup		" keep a backup file (restore to previous version)
+set undofile		" keep an undo file (undo changes after closing)
 
 set history=100		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
@@ -364,6 +360,10 @@ Plug 'muziqiushan/vim-bufonly'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mhinz/vim-signify'
 let g:signify_update_on_bufenter = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'mbbill/undotree'
+nnoremap ;h :UndotreeToggle<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mhinz/vim-startify'
