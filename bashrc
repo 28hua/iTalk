@@ -122,7 +122,7 @@ export HISTSIZE=100000
 export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S >> "
 shopt -s histappend
 
-export GOROOT=$HOME/opt/go
+export GOROOT=/usr/opt/go
 export GOPATH=$HOME/git/gopath
 export PATH=$PATH:/opt/cisco/anyconnect/bin:$HOME/opt/bin:$HOME/opt/go/bin
 
