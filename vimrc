@@ -83,7 +83,7 @@ endif
 
 if has('gui_running')
     "字体
-    set guifont=Dejavu\ Sans\ Mono\ 11
+    set guifont=Dejavu\ Sans\ Mono\ Book\ 11
     set linespace=-1
     "隐藏工具栏和菜单栏和滚动条
     set guioptions-=T
