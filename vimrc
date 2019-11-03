@@ -41,7 +41,7 @@ set aw
 set awa
 "set spell
 
-set tm=500
+set tm=10
 set ttm=0
 
 "tab设置为4个空格
