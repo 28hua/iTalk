@@ -83,8 +83,8 @@ endif
 
 if has('gui_running')
     "字体
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
-    set linespace=-2
+    set guifont=Dejavu\ Sans\ Mono\ 11
+    set linespace=-1
     "隐藏工具栏和菜单栏和滚动条
     set guioptions-=T
     set guioptions-=m
@@ -216,7 +216,7 @@ au FileType go nmap \r <Plug>(go-referrers)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf = '/home/xiexy/github/iTalk/ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 set completeopt=menu,menuone
 let g:ycm_key_invoke_completion = '<C-.>'
 let g:ycm_show_diagnostics_ui = 0
