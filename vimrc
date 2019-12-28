@@ -41,7 +41,7 @@ set aw
 set awa
 "set spell
 
-set tm=10
+set tm=500
 set ttm=0
 
 "tab设置为4个空格
@@ -363,7 +363,7 @@ let g:signify_update_on_bufenter = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mbbill/undotree'
-nnoremap ;h :UndotreeToggle<cr>
+nnoremap <leader>h :UndotreeToggle<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mhinz/vim-startify'
