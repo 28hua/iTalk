@@ -102,50 +102,50 @@ let mapleader=","
 let loaded_matchparen = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <silent> tn :tabnext<CR>
-nmap <silent> tp :tabprev<CR>
-nmap <silent> th :tabnext<CR>
-nmap <silent> tl :tabprev<CR>
-nmap <silent> td :tabclose<CR>
+nnoremap <silent> tn :tabnext<CR>
+nnoremap <silent> tp :tabprev<CR>
+nnoremap <silent> th :tabnext<CR>
+nnoremap <silent> tl :tabprev<CR>
+nnoremap <silent> td :tabclose<CR>
 
 "拿buffer当普通编辑器的tab使
-nmap <silent> <S-h> :bp<CR>
-nmap <silent> <S-l> :bn<CR>
+nnoremap <silent> <S-h> :bp<CR>
+nnoremap <silent> <S-l> :bn<CR>
 
 "快速移动到其他window
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-nmap j gj
-nmap k gk
-nmap <C-e> <C-e>j
-nmap <C-y> <C-y>k
+nnoremap j gj
+nnoremap k gk
+nnoremap <C-e> <C-e>j
+nnoremap <C-y> <C-y>k
 
 "刷新vimrc
-nmap <leader>e :e ~/.vimrc<cr>
+nnoremap <leader>e :e ~/.vimrc<cr>
 
 "clear search hight light
-nmap <silent> <BS> :nohl<cr>
+nnoremap <silent> <BS> :nohl<cr>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
 "插入模式下bash风格移动
-imap <C-F> <Right>
-imap <C-B> <Left>
-imap <C-A> <Esc>^i
-imap <C-E> <End>
+inoremap <C-F> <Right>
+inoremap <C-B> <Left>
+inoremap <C-A> <Esc>^i
+inoremap <C-E> <End>
 "删除
-imap <C-D>  <Delete>
+inoremap <C-D>  <Delete>
 
-imap <c-j> <c-g><c-j>
-imap <c-k> <c-g><c-k>
+inoremap <c-j> <c-g><c-j>
+inoremap <c-k> <c-g><c-k>
 
-vmap < <gv
-vmap > >gv
+vnoremap < <gv
+vnoremap > >gv
 
 " URL encode/decode selection
 vnoremap ,eu :!python3 -c 'import sys,urllib.parse;print(urllib.parse.quote(sys.stdin.read()), end="")'<cr>
@@ -209,10 +209,10 @@ let g:go_highlight_generate_tags = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
 
-au FileType go nmap \t <Plug>(go-info)
-au FileType go nmap \k <Plug>(go-doc-split)
-au FileType go nmap \d <Plug>(go-def-split)
-au FileType go nmap \r <Plug>(go-referrers)
+au FileType go nnoremap \t <Plug>(go-info)
+au FileType go nnoremap \k <Plug>(go-doc-split)
+au FileType go nnoremap \d <Plug>(go-def-split)
+au FileType go nnoremap \r <Plug>(go-referrers)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Valloric/YouCompleteMe'
@@ -258,24 +258,24 @@ let g:ctrlsf_auto_close = {
             \ "compact": 1
             \ }
 let g:ctrlsf_default_view_mode = 'compact'
-nmap <Space>s <Plug>CtrlSFPrompt
-vmap <Space>s <Plug>CtrlSFVwordPath
-vmap <Space>S <Plug>CtrlSFVwordExec
-nmap <Space>w <Plug>CtrlSFCwordPath
-nmap <Space>W <Plug>CtrlSFCwordExec
-nmap <Space>t :CtrlSFToggle<CR>
+nnoremap <Space>s <Plug>CtrlSFPrompt
+vnoremap <Space>s <Plug>CtrlSFVwordPath
+vnoremap <Space>S <Plug>CtrlSFVwordExec
+nnoremap <Space>w <Plug>CtrlSFCwordPath
+nnoremap <Space>W <Plug>CtrlSFCwordExec
+nnoremap <Space>t :CtrlSFToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/LeaderF'
 let g:Lf_ShortcutF = '<c-p>'
 let g:Lf_ShortcutB = '\b'
-nmap <c-n> :LeaderfMru<cr>
-nmap \f :LeaderfFunction<cr>
-nmap \b :LeaderfBuffer<cr>
-nmap \t :LeaderfBufTag<cr>
-nmap \h :LeaderfHistoryCmd<cr>
-nmap \l :LeaderfLine<cr>
-nmap \c :LeaderfColorscheme<cr>
+nnoremap <c-n> :LeaderfMru<cr>
+nnoremap \f :LeaderfFunction<cr>
+nnoremap \b :LeaderfBuffer<cr>
+nnoremap \t :LeaderfBufTag<cr>
+nnoremap \h :LeaderfHistoryCmd<cr>
+nnoremap \l :LeaderfLine<cr>
+nnoremap \c :LeaderfColorscheme<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -289,16 +289,16 @@ let g:Lf_PreviewResult = {'Function':0, 'BufTag':1}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'terryma/vim-expand-region'
-vmap v <Plug>(expand_region_expand)
-vmap V <Plug>(expand_region_shrink)
+vnoremap v <Plug>(expand_region_expand)
+vnoremap V <Plug>(expand_region_shrink)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdtree'
-nmap <Leader>f :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'majutsushi/tagbar'
-nmap <Leader>t :Tagbar<CR>
+nnoremap <Leader>t :Tagbar<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'jiangmiao/auto-pairs'
@@ -318,10 +318,10 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'junegunn/vim-easy-align'
-nmap <Leader>a <Plug>(EasyAlign)
-vmap <Leader>a <Plug>(EasyAlign)
-nmap <Leader>A <Plug>(EasyAlign)
-vmap <Leader>A <Plug>(EasyAlign)
+nnoremap <Leader>a <Plug>(EasyAlign)
+vnoremap <Leader>a <Plug>(EasyAlign)
+nnoremap <Leader>A <Plug>(EasyAlign)
+vnoremap <Leader>A <Plug>(EasyAlign)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'markonm/traces.vim'
@@ -376,13 +376,13 @@ Plug 'machakann/vim-highlightedyank'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 't9md/vim-quickhl'
-nmap vz <Plug>(quickhl-manual-this)
-vmap vz <Plug>(quickhl-manual-this)
-nmap z/ <Plug>(quickhl-cword-toggle)
-nmap z<BS> <Plug>(quickhl-manual-clear)
-vmap z<BS> <Plug>(quickhl-manual-clear)
-nmap z\ <Plug>(quickhl-manual-reset)
-vmap z\ <Plug>(quickhl-manual-reset)
+nnoremap vz <Plug>(quickhl-manual-this)
+vnoremap vz <Plug>(quickhl-manual-this)
+nnoremap z/ <Plug>(quickhl-cword-toggle)
+nnoremap z<BS> <Plug>(quickhl-manual-clear)
+vnoremap z<BS> <Plug>(quickhl-manual-clear)
+nnoremap z\ <Plug>(quickhl-manual-reset)
+vnoremap z\ <Plug>(quickhl-manual-reset)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug '28hua/dict.vim'
