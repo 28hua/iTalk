@@ -52,7 +52,6 @@ set expandtab
 
 set autoindent		" always set autoindenting on
 set smartindent
-set cindent
 
 "折叠
 set foldmethod=indent
@@ -258,12 +257,12 @@ let g:ctrlsf_auto_close = {
             \ "compact": 1
             \ }
 let g:ctrlsf_default_view_mode = 'compact'
-nnoremap <Space>s <Plug>CtrlSFPrompt
-vnoremap <Space>s <Plug>CtrlSFVwordPath
-vnoremap <Space>S <Plug>CtrlSFVwordExec
-nnoremap <Space>w <Plug>CtrlSFCwordPath
-nnoremap <Space>W <Plug>CtrlSFCwordExec
-nnoremap <Space>t :CtrlSFToggle<CR>
+nmap <Space>s <Plug>CtrlSFPrompt
+vmap <Space>s <Plug>CtrlSFVwordPath
+vmap <Space>S <Plug>CtrlSFVwordExec
+nmap <Space>w <Plug>CtrlSFCwordPath
+nmap <Space>W <Plug>CtrlSFCwordExec
+nmap <Space>t :CtrlSFToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/LeaderF'
