@@ -25,7 +25,7 @@ nnoremap zo :action ExpandRegion <CR>
 
 nnoremap ,f :action HideAllWindows <CR>
 
-nnoremap ,w :action FindInPath <CR>
+nnoremap ,w "+yaw:action FindInPath <CR>
 nnoremap <C-p> :action SearchEverywhere <CR>
 
 nnoremap td :action CloseEditor<CR>
