@@ -240,6 +240,7 @@ nnoremap <leader>gt :YcmCompleter Get
 Plug 'rdnetto/YCM-Generator', {'branch': 'stable'}
 "./config_gen
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'rhysd/vim-clang-format'
 let g:clang_format#style_options = {
@@ -408,6 +409,24 @@ vnoremap z\ <Plug>(quickhl-manual-reset)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug '28hua/dict.vim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'skywind3000/vim-auto-popmenu'
+
+" enable this plugin for filetypes, '*' for all files.
+let g:apc_enable_ft = {'text':1, 'markdown':1, 'php':1}
+
+" source for dictionary, current or other loaded buffers, see ':help cpt'
+set cpt=.,k,w,b
+
+" don't select the first item.
+set completeopt=menu,menuone,noselect
+
+" suppress annoy messages.
+set shortmess+=c
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'skywind3000/vim-dict'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-scripts/fcitx.vim'
